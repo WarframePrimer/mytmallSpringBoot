@@ -1,5 +1,4 @@
----------后台权限控制------------------
-## 不用外键才是男人的浪漫
+-- 不用外键才是男人的浪漫
 
 -- 权限表，与角色关联
 DROP TABLE IF EXISTS `tmall_permission`;
@@ -27,7 +26,7 @@ CREATE TABLE `tmall_user` (
   `user_name` varchar(32) DEFAULT NULL COMMENT '权限管理人员名',
   `password` varchar(32) DEFAULT NULL COMMENT '密码',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';
 
 
@@ -41,7 +40,6 @@ CREATE TABLE `tmall_user_role_map` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户角色关系表';
 
------------------------------------------------------------------------
 -- 顾客信息
 DROP TABLE IF EXISTS `tmall_customer`;
 CREATE TABLE `tmall_customer` (
@@ -86,12 +84,12 @@ CREATE TABLE `tmall_product` (
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT='商品表';
 
 -- 图片url表
-DROP TABLE IF EXISTS `tmall_image `;
+DROP TABLE IF EXISTS `tmall_image`;
 CREATE TABLE `tmall_image` (
   `id` bigint(19) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
   `type` varchar(2) NOT NULL COMMENT '图片类型（0:首页滚动图 1:分类图 2:商品缩略图 3:商品详情图 )',
-  `product_id` bigint(19) DEFAULT NULL COMMENT '类型为商品的依赖id',
-  `category_id` bigint(19) DEFAULT NULL COMMENT '类型为分类的依赖id',
+  `product_id` bigint(19) DEFAULT NULL COMMENT '类型为商品的依赖商品id',
+  `category_id` bigint(19) DEFAULT NULL COMMENT '类型为分类的依赖分类id',
   `image_url` varchar(500) NOT NULL COMMENT '图片url地址',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
@@ -102,7 +100,7 @@ CREATE TABLE `tmall_image` (
 DROP TABLE IF EXISTS `tmall_product_property`;
 CREATE TABLE `tmall_product_property` (
   `id` bigint(19) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
-  `category_id` bigint(19) DEFAULT NULL COMMENT '分类ID'
+  `category_id` bigint(19) DEFAULT NULL COMMENT '分类ID',
   `product_id` bigint(19) DEFAULT NULL COMMENT '商品ID',
   `property_id` bigint(19) DEFAULT NULL COMMENT '属性ID',
   `value` VARCHAR(255) NOT NULL COMMENT '属性值',
