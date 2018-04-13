@@ -127,3 +127,15 @@ CREATE TABLE `tmall_order`(
   `order_status` VARCHAR(2) NOT NULL COMMENT '订单状态',
   PRIMARY KEY(id)
 )ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT '订单表';
+
+-- 商品评价表
+DROP TABLE IF EXISTS `tmall_product_review`;
+CREATE TABLE `tmall_product_review`(
+  `id` bigint(19) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `customer_id` INT DEFAULT NULL COMMENT '顾客ID',
+  `product_id` INT DEFAULT NULL COMMENT '商品ID',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `review_content` VARCHAR(255) DEFAULT NULL COMMENT '评论商品内容',
+  PRIMARY KEY(id)
+)ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT '商品评价表';
+
