@@ -173,6 +173,7 @@ CREATE TABLE `tmall_order`(
 )ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT '订单表';
 
 -- 订单详情表
+DROP TABLE IF EXISTS `tmall_order_item`;
 CREATE TABLE `tmall_order_item`(
   `id` bigint(19) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
   `order_id` bigint(19) DEFAULT NULL COMMENT '订单ID',
