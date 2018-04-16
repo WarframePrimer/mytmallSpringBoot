@@ -76,6 +76,26 @@ CREATE TABLE `tmall_customer` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='顾客表';
 
+INSERT INTO `tmall_customer` (
+`id`,`customer_name`,`password`) VALUES
+('1', '姚嘉斌', 'yaojiabin');
+
+-- 顾客收货地址表
+DROP TABLE IF EXISTS `tmall_customer_address`;
+CREATE TABLE `tmall_customer_address` (
+  `id` bigint(19) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `customer_id` INT DEFAULT NULL COMMENT '顾客ID',
+  `address` VARCHAR(255) NOT NULL COMMENT '收货地址',
+  `postalcode` VARCHAR(255) NOT NULL COMMENT '邮政编码',
+  `address_type` VARCHAR(2) NOT NULL DEFAULT '1' COMMENT '地址类型 1-普通类型 0-默认地址',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='顾客表';
+
+INSERT INTO `tmall_customer_address` (
+`id`,`customer_id`,`address`,`postalcode`,`address_type`) VALUES
+('1', '1', '浙江省杭州市萧山区','112000','0');
+
+
 -- 分类表
 DROP TABLE IF EXISTS `tmall_category`;
 CREATE TABLE `tmall_category` (
@@ -129,6 +149,7 @@ CREATE TABLE `tmall_carousel_image` (
 DROP TABLE IF EXISTS `tmall_product_image`;
 CREATE TABLE `tmall_product_image` (
   `id` bigint(19) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `product_id` bigint(19) NOT NULL COMMENT '商品ID',
   `image_url` varchar(500) NOT NULL COMMENT '图片url地址',
   `image_type` varchar(2) DEFAULT '1' COMMENT '图片类型 1-缩略图 2-详情图',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
@@ -155,8 +176,7 @@ CREATE TABLE `tmall_order`(
   `id` bigint(19) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
   `customer_id` INT DEFAULT NULL COMMENT '顾客ID',
   `orderCode` VARCHAR(255) NOT NULL COMMENT '订单流水号',
-  `order_address` VARCHAR(255) NOT NULL COMMENT '收货地址',
-  `postalcode` VARCHAR(255) NOT NULL COMMENT '邮政编码',
+  `order_address_id` bigint(19) NOT NULL COMMENT '收货地址ID',
   `order_receiver` VARCHAR(255) NOT NULL COMMENT '收件人',
   `mobile` VARCHAR(255) NOT NULL COMMENT '联系方式',
   `userMessage` VARCHAR(255) NOT NULL COMMENT '备注消息',
