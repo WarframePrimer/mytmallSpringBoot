@@ -1,4 +1,4 @@
-package com.warframe.tmall.domain;
+package com.warframe.tmall.domain.web;
 
 import lombok.Data;
 
@@ -12,21 +12,22 @@ import lombok.Data;
 @Data
 public class OrderItem {
 
-    private int id;
-    private User user;
-    private Product product;
+    private Long id;
+    private Long orderId;
+    private Long productId;
+    private Long customerId;
     private int number;
-    private Order order;
-
+    private String isComment;
 
     @Override
     public String toString() {
         return "OrderItem{" +
                 "id=" + id +
-                ", user=" + user +
-                ", product=" + product +
+                ", orderId=" + orderId +
+                ", productId=" + productId +
+                ", customerId=" + customerId +
                 ", number=" + number +
-                ", order=" + order +
+                ", isComment='" + isComment + '\'' +
                 '}';
     }
 }

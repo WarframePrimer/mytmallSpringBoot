@@ -1,4 +1,4 @@
-package com.warframe.tmall.domain;
+package com.warframe.tmall.domain.web;
 
 
 import lombok.Data;
