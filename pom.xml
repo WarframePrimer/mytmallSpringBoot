@@ -14,6 +14,7 @@
         <module>tmall-domain</module>
         <module>tmall-repository</module>
         <module>tmall-common</module>
+        <module>tmall-cms</module>
     </modules>
 
     <parent>
