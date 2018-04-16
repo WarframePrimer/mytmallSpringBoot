@@ -1,0 +1,61 @@
+project:
+    application: tmall-springboot
+    name: tmall-cms
+    chineseName: tmall后台管理系统
+    version:  TMALLCMS-V0.0.1
+    unpackTime: 2018/4/16
+    PIC: yaojiabin
+    versionControlNo: TMALLCMS-V0.0.1
+    versionControlPath: ssh://git@github.com:WarframePrimer/mytmallSpringBoot.git
+    framework: springboot
+
+spring:
+    application:
+        name: tmall-cms
+    #HTTP字符编码配置
+    http:
+        encoding:
+          charset: UTF-8
+          force: true
+    ## Freemarker 配置
+    freemarker:
+        ## 文件配置路径
+        template-loader-path: classpath:/templates/
+        cache: false
+        charset: UTF-8
+        check-template-location: true
+        content-type: text/html
+        expose-request-attributes: true
+        expose-session-attributes: true
+        request-context-attribute: request
+        suffix: .ftl
+    ## 线程池 配置
+    threadPool:
+        corePoolSize: 20
+        maxPoolSize: 400
+        queueCapacity: 1000
+        keepAliveSeconds: 300
+    ## 数据源配置
+    datasource:
+        url: jdbc:mysql://127.0.0.1:3306/tmall_springboot?characterEncoding=utf8
+        username: root
+        password: 123
+        driverClassName: com.mysql.jdbc.Driver
+        max-active: 500
+        max-idle: 10000
+        min-idle: 200
+        initial-size: 50
+    redis:
+        host: 127.0.0.1
+        port: 6379
+        timeout: 5000
+
+#mybatis配置:
+mybatis:
+    mapper-locations: com.warframe.tmall.repository.*.mapper/*.xml
+
+server:
+  # 端口
+  port: 80
+  # 上下文路径
+  context-path: /tmall-cms
