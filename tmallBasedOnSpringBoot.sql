@@ -151,7 +151,7 @@ CREATE TABLE `tmall_product_image` (
   `id` bigint(19) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
   `product_id` bigint(19) NOT NULL COMMENT '商品ID',
   `image_url` varchar(500) NOT NULL COMMENT '图片url地址',
-  `image_type` varchar(2) DEFAULT '1' COMMENT '图片类型 1-缩略图 2-详情图',
+  `image_type` varchar(2) DEFAULT '1' COMMENT '图片类型 1-缩略图 2-详情图 3-展示图',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY(id)

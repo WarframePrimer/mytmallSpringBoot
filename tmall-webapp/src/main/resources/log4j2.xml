@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <Properties>
+        <!--log file path-->
+        <Property name="LOG_HOME">/data/logs/</Property>
+        <!--log file name-->
+        <property name="FILE_NAME">tmall-web</property>
+        <!--log file pattern-->
+        <property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} |-%-5level [%thread] %c [%L] -| %msg%n</property>
+    </Properties>
+
+    <!-- 定义所有的appender -->
+    <appenders>
+        <!-- 这个输出控制台的配置 -->
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <!-- 输出日志的格式 -->
+            <PatternLayout pattern="${LOG_PATTERN}" />
+        </Console>
+
+        <!-- ERROR 日志 -->
+        <RollingFile name="ERROR-FILE" fileName="/data/logs/tmall-web-error.log"
+                     filePattern="/data/logs/tmall-web-error-%d{yyyy-MM-dd}.log.gz">
+            <ThresholdFilter level="error" onMatch="ACCEPT"
+                             onMismatch="DENY" />
+            <PatternLayout pattern="${LOG_PATTERN}" />
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true"
+                                           interval="1" />
+            </Policies>
+        </RollingFile>
+
+        <!-- log 日志 -->
+        <RollingFile name="LOG-File" fileName="/data/logs/tmall-web.log"
+                     filePattern="/data/logs/tmall-web-%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true"
+                                           interval="1" />
+            </Policies>
+        </RollingFile>
+
+    </appenders>
+
+    <loggers>
+        <Root level="info" includeLocation="true">
+            <!--控制台日志-->
+            <appender-ref ref="CONSOLE" />
+            <!--生产环境日志-->
+            <appender-ref ref="LOG-File" />
+            <appender-ref ref="ERROR-FILE" />
+        </Root>
+    </loggers>
+</configuration>

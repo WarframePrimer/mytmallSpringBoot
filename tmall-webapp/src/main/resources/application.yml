@@ -1,11 +1,11 @@
 project:
     application: tmall-springboot
-    name: tmall-webapp
-    chineseName: tmall网站系统
-    version:  TMALL-V0.0.1
+    name: tmall-web
+    chineseName: tmall web
+    version:  TMALLWEB-V0.0.1
     unpackTime: 2018/4/16
     PIC: yaojiabin
-    versionControlNo: TMALL-V0.0.1
+    versionControlNo: TMALLWEB-V0.0.1
     versionControlPath: ssh://git@github.com:WarframePrimer/mytmallSpringBoot.git
     framework: springboot
 
@@ -17,18 +17,28 @@ spring:
         encoding:
           charset: UTF-8
           force: true
-    ## Freemarker 配置
-    freemarker:
-        ## 文件配置路径
-        template-loader-path: classpath:/templates/
-        cache: false
-        charset: UTF-8
-        check-template-location: true
-        content-type: text/html
-        expose-request-attributes: true
-        expose-session-attributes: true
-        request-context-attribute: request
-        suffix: .ftl
+#    ## Freemarker 配置
+#    freemarker:
+#        ## 文件配置路径
+#        template-loader-path: classpath:/templates/
+#        cache: false
+#        charset: UTF-8
+#        check-template-location: true
+#        content-type: text/html
+#        expose-request-attributes: true
+#        expose-session-attributes: true
+#        request-context-attribute: request
+#        suffix: .ftl
+
+    ## jsp配置
+    mvc:
+        view:
+          prefix: /WEB-INF/page/
+          suffix: .jsp
+    #thymeleaf 配置
+    thymeleaf:
+      mode: HTML5
+      cache: false
     ## 线程池 配置
     threadPool:
         corePoolSize: 20
@@ -37,6 +47,7 @@ spring:
         keepAliveSeconds: 300
     ## 数据源配置
     datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
         url: jdbc:mysql://127.0.0.1:3306/tmall_springboot?characterEncoding=utf8
         username: root
         password: 123
