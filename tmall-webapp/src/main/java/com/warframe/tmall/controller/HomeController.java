@@ -17,6 +17,7 @@ import java.util.List;
  */
 @Slf4j
 @Controller
+@RequestMapping("/home")
 public class HomeController {
 
 //    @Autowired
@@ -25,9 +26,27 @@ public class HomeController {
 //    @Autowired
 //    private ProductService productService;
 
+    /**
+     * register.do和login.do只是单纯的到指定的页面，没有任何额外操作
+     *
+     * @return
+     */
+
+    @RequestMapping("/f_register")
+    public String register() {
+
+        return "/frontPage/register";
+    }
+
+    @RequestMapping("/f_login")
+    public String login() {
+
+        return "/frontPage/login";
+    }
+
 
     //首页
-    @RequestMapping("/home")
+    @RequestMapping("/")
     public String home() {
 
 //        //获取所有分类
@@ -51,4 +70,6 @@ public class HomeController {
 //        //modelAndView.addObject("productsByCategoryMap", productsByCategoryMap);
         return "/frontPage/home";
     }
+
+
 }

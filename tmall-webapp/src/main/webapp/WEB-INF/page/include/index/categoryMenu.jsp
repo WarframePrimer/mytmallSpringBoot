@@ -18,12 +18,12 @@
     </div>
 
 
-    <img src="img/site/catear.png" alt="图片加载失败" style="position:absolute;display: none;height: 15px; "
+    <img src="<%=request.getContextPath()%>/img/site/catear.png" alt="图片加载失败" style="position:absolute;display: none;height: 15px; "
          class="carear" id="catear">
 
     <div class="rightMenu">
-        <span><a href="#"><img src="img/site/chaoshi.png" alt="图片加载失败"></a></span>
-        <span><a href="#"><img src="img/site/guoji.png" alt="图片加载失败"></a></span>
+        <span><a href="#"><img src="<%=request.getContextPath()%>/img/site/chaoshi.png" alt="图片加载失败"></a></span>
+        <span><a href="#"><img src="<%=request.getContextPath()%>/img/site/guoji.png" alt="图片加载失败"></a></span>
         <span><a href="#">平板电视</a></span>
         <span><a href="#">电热水器</a></span>
     </div>

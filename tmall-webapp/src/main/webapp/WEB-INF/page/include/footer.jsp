@@ -20,7 +20,7 @@
     <div class="footer1">
         <!--商家承诺-->
         <div class="footer1_ensure">
-            <a href="#"><img src="img/site/ensure.png" alt="图片加载失败"></a>
+            <a href="#"><img src="<%=request.getContextPath()%>/img/site/ensure.png" alt="图片加载失败"></a>
         </div>
         <!--具体信息-->
         <div class="footer1_desc">
@@ -56,7 +56,7 @@
             </div>
             <div class="descColumn">
                 <span class="desc_title">手机天猫</span>
-                <a href="#"><img src="img/site/ma.png" alt="图片加载失败"></a>
+                <a href="#"><img src="<%=request.getContextPath()%>/img/site/ma.png" alt="图片加载失败"></a>
             </div>
         </div>
     </div>
@@ -65,7 +65,7 @@
     <!--页脚二-->
     <div class="footer2">
         <div class="footer2_middle">
-            <img src="img/site/cateye.png" alt="图片加载失败" class="cateye">
+            <img src="<%=request.getContextPath()%>/img/site/cateye.png" alt="图片加载失败" class="cateye">
             <div class="copyright" id="copyright">
                 <div class="white_link">
                     <a href="#">关于天猫</a>
@@ -95,8 +95,8 @@
                     <span>互联网药品信息服务资质证书编号：浙-（经营性）-2012-0005</span>
                     <div class="copyRightYear">© 2003-2016 TMALL.COM 版权所有</div>
                     <div>
-                        <img src="img/site/copyRight1.jpg" alt="图片加载失败">
-                        <img src="img/site/copyRight2.jpg" alt="图片加载失败">
+                        <img src="<%=request.getContextPath()%>/img/site/copyRight1.jpg" alt="图片加载失败">
+                        <img src="<%=request.getContextPath()%>/img/site/copyRight2.jpg" alt="图片加载失败">
                     </div>
                 </div>
 

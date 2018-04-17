@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!--搜索框-->
 <div>
-    <img src="img/site/logo.gif" alt="图片加载失败" class="logo">
+    <img src="<%=request.getContextPath()%>/img/site/logo.gif" alt="图片加载失败" class="logo">
     <div class="searchDiv">
         <form action="searchByKeyword.do">
             <input type="text" name="keyword" placeholder="时尚男鞋 太阳镜">

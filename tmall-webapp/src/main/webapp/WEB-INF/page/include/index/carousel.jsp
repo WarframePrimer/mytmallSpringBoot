@@ -21,10 +21,10 @@
 
     <!--wrapper for slide-->
     <div class="carousel-inner">
-        <div class="item active"><a href="#"><img src="img/site/lunbo/lunbo/1.jpg" alt="图片加载失败"></a></div>
-        <div class="item"><a href="#"><img src="img/site/lunbo/lunbo/2.jpg" alt="图片加载失败"></a></div>
-        <div class="item"><a href="#"><img src="img/site/lunbo/lunbo/3.jpg" alt="图片加载失败"></a></div>
-        <div class="item"><a href="#"><img src="img/site/lunbo/lunbo/4.jpg" alt="图片加载失败"></a></div>
+        <div class="item active"><a href="#"><img src="<%=request.getContextPath()%>/img/site/lunbo/lunbo/1.jpg" alt="图片加载失败"></a></div>
+        <div class="item"><a href="#"><img src="<%=request.getContextPath()%>/img/site/lunbo/lunbo/2.jpg" alt="图片加载失败"></a></div>
+        <div class="item"><a href="#"><img src="<%=request.getContextPath()%>/img/site/lunbo/lunbo/3.jpg" alt="图片加载失败"></a></div>
+        <div class="item"><a href="#"><img src="<%=request.getContextPath()%>/img/site/lunbo/lunbo/4.jpg" alt="图片加载失败"></a></div>
     </div>
 </div>
 
