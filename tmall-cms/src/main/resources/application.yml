@@ -23,6 +23,7 @@ spring:
         view:
           prefix: /WEB-INF/page/
           suffix: .jsp
+        date-format: yyyy-MM-dd HH:mm:ss
 #    ## Freemarker 配置
 #    freemarker:
 #        ## 文件配置路径
