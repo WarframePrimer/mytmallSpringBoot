@@ -1,24 +1,43 @@
 package com.warframe.tmall.domain.admin;
 
-import lombok.Data;
-
-/**
- * @author yaojiabin
- * @Description'
- * @date 2018-04-16 13:54
- */
-@Data
 public class RolePermissionMap {
     private Long id;
+
     private Long roleId;
+
     private Long permissionId;
 
-    @Override
-    public String toString() {
-        return "RolePermissionMap{" +
-                "id=" + id +
-                ", roleId=" + roleId +
-                ", permissionId=" + permissionId +
-                '}';
+    public RolePermissionMap(Long id, Long roleId, Long permissionId) {
+        this.id = id;
+        this.roleId = roleId;
+        this.permissionId = permissionId;
+    }
+
+    public RolePermissionMap() {
+        super();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
+    }
+
+    public Long getPermissionId() {
+        return permissionId;
+    }
+
+    public void setPermissionId(Long permissionId) {
+        this.permissionId = permissionId;
     }
 }

@@ -1,8 +1,17 @@
 package com.warframe.tmall.repository.admin.mapper;
 
-import com.warframe.tmall.repository.BaseMapper;
+import com.warframe.tmall.domain.admin.Role;
 
+public interface RoleMapper {
+    int deleteByPrimaryKey(Long id);
 
-public interface RoleMapper extends BaseMapper {
+    int insert(Role record);
 
+    int insertSelective(Role record);
+
+    Role selectByPrimaryKey(Long id);
+
+    int updateByPrimaryKeySelective(Role record);
+
+    int updateByPrimaryKey(Role record);
 }

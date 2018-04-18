@@ -1,32 +1,67 @@
 package com.warframe.tmall.domain.web;
 
-import lombok.Data;
-
 import java.util.Date;
 
-/**
- * Created by warframe on 2017/6/2.
- * 一个商品有多条评价
- * 一个评价只对应一个商品
- * 一个评价只对应一个用户
- * 一个用户有多个评价(没有这个业务需求,待定(需求：用户要查看自己的评价记录))
- */
-@Data
 public class ProductReview {
     private Long id;
-    private Long customerId;
-    private Long productId;
-    private String reviewContent;
+
+    private Integer customerId;
+
+    private Integer productId;
+
     private Date createTime;
 
-    @Override
-    public String toString() {
-        return "ProductReview{" +
-                "id=" + id +
-                ", customerId=" + customerId +
-                ", productId=" + productId +
-                ", reviewContent='" + reviewContent + '\'' +
-                ", createTime=" + createTime +
-                '}';
+    private String reviewContent;
+
+    public ProductReview(Long id, Integer customerId, Integer productId, Date createTime, String reviewContent) {
+        this.id = id;
+        this.customerId = customerId;
+        this.productId = productId;
+        this.createTime = createTime;
+        this.reviewContent = reviewContent;
+    }
+
+    public ProductReview() {
+        super();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
+    }
+
+    public Integer getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Integer productId) {
+        this.productId = productId;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getReviewContent() {
+        return reviewContent;
+    }
+
+    public void setReviewContent(String reviewContent) {
+        this.reviewContent = reviewContent == null ? null : reviewContent.trim();
     }
 }

@@ -1,42 +1,122 @@
 package com.warframe.tmall.domain.admin;
 
-import lombok.Data;
-
 import java.util.Date;
 
-/**
- * @author yaojiabin
- * @Description'
- * @date 2018-04-16 13:52
- */
-
-@Data
 public class User {
-
     private Long id;
-    private String userName;
+
+    private String username;
+
     private String password;
+
     private String phone;
+
     private String email;
-    private String state;
+
+    private Integer state;
+
     private String description;
-    private Long roleId;
+
+    private Integer roleId;
+
     private Date createTime;
+
     private Date updateTime;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                ", state='" + state + '\'' +
-                ", description='" + description + '\'' +
-                ", roleId=" + roleId +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                '}';
+    public User(Long id, String username, String password, String phone, String email, Integer state, String description, Integer roleId, Date createTime, Date updateTime) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.phone = phone;
+        this.email = email;
+        this.state = state;
+        this.description = description;
+        this.roleId = roleId;
+        this.createTime = createTime;
+        this.updateTime = updateTime;
+    }
+
+    public User() {
+        super();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password == null ? null : password.trim();
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description == null ? null : description.trim();
+    }
+
+    public Integer getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }

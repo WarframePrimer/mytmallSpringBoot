@@ -1,34 +1,78 @@
 package com.warframe.tmall.domain.web;
 
-import lombok.Data;
-
 import java.util.Date;
 
-/**
- * Created by warframe on 2017/6/2.
- * 一个商品有多张图片，一个图片只对应一个商品
- *
- * 图片属于哪一个产品
- */
-@Data
 public class ProductImage {
-
     private Long id;
+
     private Long productId;
+
     private String imageUrl;
+
     private String imageType;
+
     private Date createTime;
+
     private Date updateTime;
 
-    @Override
-    public String toString() {
-        return "ProductImage{" +
-                "id=" + id +
-                ", productId=" + productId +
-                ", imageUrl='" + imageUrl + '\'' +
-                ", imageType='" + imageType + '\'' +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                '}';
+    public ProductImage(Long id, Long productId, String imageUrl, String imageType, Date createTime, Date updateTime) {
+        this.id = id;
+        this.productId = productId;
+        this.imageUrl = imageUrl;
+        this.imageType = imageType;
+        this.createTime = createTime;
+        this.updateTime = updateTime;
+    }
+
+    public ProductImage() {
+        super();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Long productId) {
+        this.productId = productId;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl == null ? null : imageUrl.trim();
+    }
+
+    public String getImageType() {
+        return imageType;
+    }
+
+    public void setImageType(String imageType) {
+        this.imageType = imageType == null ? null : imageType.trim();
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }

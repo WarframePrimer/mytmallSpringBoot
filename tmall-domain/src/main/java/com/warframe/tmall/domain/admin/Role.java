@@ -1,24 +1,43 @@
 package com.warframe.tmall.domain.admin;
 
-import lombok.Data;
-
-/**
- * @author yaojiabin
- * @Description'
- * @date 2018-04-16 13:51
- */
-@Data
 public class Role {
     private Long id;
+
     private String roleName;
+
     private String description;
 
-    @Override
-    public String toString() {
-        return "Role{" +
-                "id=" + id +
-                ", roleName='" + roleName + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+    public Role(Long id, String roleName, String description) {
+        this.id = id;
+        this.roleName = roleName;
+        this.description = description;
+    }
+
+    public Role() {
+        super();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName == null ? null : roleName.trim();
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description == null ? null : description.trim();
     }
 }

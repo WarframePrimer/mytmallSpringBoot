@@ -1,24 +1,43 @@
 package com.warframe.tmall.domain.admin;
 
-import lombok.Data;
-
-/**
- * @author yaojiabin
- * @Description'
- * @date 2018-04-16 13:48
- */
-@Data
 public class Permission {
     private Long id;
+
     private String permissionName;
+
     private String permissionAction;
 
-    @Override
-    public String toString() {
-        return "Permission{" +
-                "id=" + id +
-                ", permissionName='" + permissionName + '\'' +
-                ", permissionAction='" + permissionAction + '\'' +
-                '}';
+    public Permission(Long id, String permissionName, String permissionAction) {
+        this.id = id;
+        this.permissionName = permissionName;
+        this.permissionAction = permissionAction;
+    }
+
+    public Permission() {
+        super();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getPermissionName() {
+        return permissionName;
+    }
+
+    public void setPermissionName(String permissionName) {
+        this.permissionName = permissionName == null ? null : permissionName.trim();
+    }
+
+    public String getPermissionAction() {
+        return permissionAction;
+    }
+
+    public void setPermissionAction(String permissionAction) {
+        this.permissionAction = permissionAction == null ? null : permissionAction.trim();
     }
 }

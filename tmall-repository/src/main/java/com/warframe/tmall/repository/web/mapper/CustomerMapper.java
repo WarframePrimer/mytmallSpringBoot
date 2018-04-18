@@ -1,15 +1,23 @@
 package com.warframe.tmall.repository.web.mapper;
 
 import com.warframe.tmall.domain.web.Customer;
-import com.warframe.tmall.repository.BaseMapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
-public interface CustomerMapper extends BaseMapper {
+public interface CustomerMapper {
+    int deleteByPrimaryKey(Long id);
 
-    boolean isExist(String name);
+    int insert(Customer record);
 
-    boolean checkCustomer(String name,String password);
+    int insertSelective(Customer record);
 
-    Customer getCustomerByName(String name);
+    Customer selectByPrimaryKey(Long id);
+
+    int updateByPrimaryKeySelective(Customer record);
+
+    int updateByPrimaryKey(Customer record);
+
+    int getTotalNumber();
 }

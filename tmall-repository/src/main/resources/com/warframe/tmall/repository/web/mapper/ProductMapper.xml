@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.warframe.tmall.repository.web.mapper.ProductMapper" >
+  <resultMap id="BaseResultMap" type="com.warframe.tmall.domain.web.Product" >
+    <constructor >
+      <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="product_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="product_title" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="product_original_price" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="product_sale_price" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="product_stock" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="category_id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="status" jdbcType="TINYINT" javaType="java.lang.Byte" />
+      <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, product_name, product_title, product_original_price, product_sale_price, product_stock, 
+    category_id, status, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from tmall_product
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from tmall_product
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.warframe.tmall.domain.web.Product" >
+    insert into tmall_product (id, product_name, product_title, 
+      product_original_price, product_sale_price, product_stock, 
+      category_id, status, create_time, 
+      update_time)
+    values (#{id,jdbcType=BIGINT}, #{productName,jdbcType=VARCHAR}, #{productTitle,jdbcType=VARCHAR}, 
+      #{productOriginalPrice,jdbcType=REAL}, #{productSalePrice,jdbcType=REAL}, #{productStock,jdbcType=INTEGER}, 
+      #{categoryId,jdbcType=BIGINT}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.warframe.tmall.domain.web.Product" >
+    insert into tmall_product
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="productName != null" >
+        product_name,
+      </if>
+      <if test="productTitle != null" >
+        product_title,
+      </if>
+      <if test="productOriginalPrice != null" >
+        product_original_price,
+      </if>
+      <if test="productSalePrice != null" >
+        product_sale_price,
+      </if>
+      <if test="productStock != null" >
+        product_stock,
+      </if>
+      <if test="categoryId != null" >
+        category_id,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null" >
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="productTitle != null" >
+        #{productTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="productOriginalPrice != null" >
+        #{productOriginalPrice,jdbcType=REAL},
+      </if>
+      <if test="productSalePrice != null" >
+        #{productSalePrice,jdbcType=REAL},
+      </if>
+      <if test="productStock != null" >
+        #{productStock,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null" >
+        #{categoryId,jdbcType=BIGINT},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.warframe.tmall.domain.web.Product" >
+    update tmall_product
+    <set >
+      <if test="productName != null" >
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="productTitle != null" >
+        product_title = #{productTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="productOriginalPrice != null" >
+        product_original_price = #{productOriginalPrice,jdbcType=REAL},
+      </if>
+      <if test="productSalePrice != null" >
+        product_sale_price = #{productSalePrice,jdbcType=REAL},
+      </if>
+      <if test="productStock != null" >
+        product_stock = #{productStock,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null" >
+        category_id = #{categoryId,jdbcType=BIGINT},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.warframe.tmall.domain.web.Product" >
+    update tmall_product
+    set product_name = #{productName,jdbcType=VARCHAR},
+      product_title = #{productTitle,jdbcType=VARCHAR},
+      product_original_price = #{productOriginalPrice,jdbcType=REAL},
+      product_sale_price = #{productSalePrice,jdbcType=REAL},
+      product_stock = #{productStock,jdbcType=INTEGER},
+      category_id = #{categoryId,jdbcType=BIGINT},
+      status = #{status,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

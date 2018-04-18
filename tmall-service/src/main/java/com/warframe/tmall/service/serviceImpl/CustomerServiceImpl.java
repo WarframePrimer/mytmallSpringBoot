@@ -23,12 +23,12 @@ public class CustomerServiceImpl implements ICustomerService {
 
     @Override
     public Customer getCustomerById(Long id) {
-        return (Customer) customerMapper.getById(id);
+        return customerMapper.selectByPrimaryKey(id);
     }
 
     @Override
     public void addCustomer(Customer customer) {
-        customerMapper.save(customer);
+        customerMapper.insert(customer);
     }
 
     @Override
@@ -38,32 +38,57 @@ public class CustomerServiceImpl implements ICustomerService {
 
     @Override
     public List<Customer> list(int start, int count) {
-        return customerMapper.findByPage(null, start, count);
+        return null;
     }
 
     @Override
     public boolean isExist(String name) {
-        return customerMapper.isExist(name);
+        return false;
     }
 
     @Override
     public boolean checkCustomer(String name, String password) {
-        return customerMapper.checkCustomer(name, password);
+        return false;
     }
 
     @Override
-    public Customer getByCustomerName(String name) {
-        return customerMapper.getCustomerByName(name);
+    public Customer getByCustomerName(String userName) {
+        return null;
     }
 
     @Override
     public boolean registerCustomer(Customer customer) {
-        boolean flag = false;
-        if (!customerMapper.isExist(customer.getCustomerName())) {
-            //用户名尚未被注册，进行新增操作
-            customerMapper.save(customer);
-            flag = true;
-        }
-        return flag;
+        return false;
     }
+
+//    @Override
+//    public List<Customer> list(int start, int count) {
+//        return customerMapper.findByPage(null, start, count);
+//    }
+
+//    @Override
+//    public boolean isExist(String name) {
+//        return customerMapper.isExist(name);
+//    }
+//
+//    @Override
+//    public boolean checkCustomer(String name, String password) {
+//        return customerMapper.checkCustomer(name, password);
+//    }
+//
+//    @Override
+//    public Customer getByCustomerName(String name) {
+//        return customerMapper.getCustomerByName(name);
+//    }
+//
+//    @Override
+//    public boolean registerCustomer(Customer customer) {
+//        boolean flag = false;
+//        if (!customerMapper.isExist(customer.getCustomerName())) {
+//            //用户名尚未被注册，进行新增操作
+//            customerMapper.save(customer);
+//            flag = true;
+//        }
+//        return flag;
+//    }
 }

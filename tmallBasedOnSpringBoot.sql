@@ -73,7 +73,8 @@ CREATE TABLE `tmall_customer` (
   `password` varchar(32) DEFAULT NULL COMMENT '密码',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `CUSTOMER_NAME_NUIQUE` (`customer_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='顾客表';
 
 INSERT INTO `tmall_customer` (

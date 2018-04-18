@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.warframe.tmall.repository.web.mapper.CustomerAddressMapper" >
+  <resultMap id="BaseResultMap" type="com.warframe.tmall.domain.web.CustomerAddress" >
+    <constructor >
+      <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="customer_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="address" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="postalcode" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="address_type" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, customer_id, address, postalcode, address_type
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from tmall_customer_address
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from tmall_customer_address
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.warframe.tmall.domain.web.CustomerAddress" >
+    insert into tmall_customer_address (id, customer_id, address, 
+      postalcode, address_type)
+    values (#{id,jdbcType=BIGINT}, #{customerId,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, 
+      #{postalcode,jdbcType=VARCHAR}, #{addressType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.warframe.tmall.domain.web.CustomerAddress" >
+    insert into tmall_customer_address
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="customerId != null" >
+        customer_id,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="postalcode != null" >
+        postalcode,
+      </if>
+      <if test="addressType != null" >
+        address_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="customerId != null" >
+        #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="postalcode != null" >
+        #{postalcode,jdbcType=VARCHAR},
+      </if>
+      <if test="addressType != null" >
+        #{addressType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.warframe.tmall.domain.web.CustomerAddress" >
+    update tmall_customer_address
+    <set >
+      <if test="customerId != null" >
+        customer_id = #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="postalcode != null" >
+        postalcode = #{postalcode,jdbcType=VARCHAR},
+      </if>
+      <if test="addressType != null" >
+        address_type = #{addressType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.warframe.tmall.domain.web.CustomerAddress" >
+    update tmall_customer_address
+    set customer_id = #{customerId,jdbcType=INTEGER},
+      address = #{address,jdbcType=VARCHAR},
+      postalcode = #{postalcode,jdbcType=VARCHAR},
+      address_type = #{addressType,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,8 +1,16 @@
 package com.warframe.tmall.controller.cms;
 
+import com.warframe.tmall.domain.web.Customer;
+import com.warframe.tmall.service.ICustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author yaojiabin
@@ -12,6 +20,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class HomeController {
+
+    @Autowired
+    private ICustomerService customerService;
 
     @RequestMapping({"/", "/index"})
     public String index() {
@@ -23,4 +34,23 @@ public class HomeController {
         return "login";
     }
 
+    @RequestMapping("/addCustomer")
+    @ResponseBody
+    public Map<String, Object> addCustomer(@RequestParam("name") String name, @RequestParam("password") String password) {
+        Map<String, Object> returnMap = new HashMap<>();
+
+        Customer customer = new Customer();
+        customer.setCustomerName(name);
+        customer.setPassword(password);
+        try{
+            customerService.addCustomer(customer);
+            returnMap.put("msg","success");
+//            returnMap.put("data",customerService.getCustomerById());
+        }catch (Exception e){
+            returnMap.put("msg",e.toString());
+        }
+
+
+        return returnMap;
+    }
 }
