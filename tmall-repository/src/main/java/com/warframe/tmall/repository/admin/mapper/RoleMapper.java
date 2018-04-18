@@ -1,7 +1,9 @@
 package com.warframe.tmall.repository.admin.mapper;
 
 import com.warframe.tmall.domain.admin.Role;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface RoleMapper {
     int deleteByPrimaryKey(Long id);
 

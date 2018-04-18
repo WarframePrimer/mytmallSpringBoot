@@ -24,7 +24,7 @@ public class HomeController {
     @Autowired
     private ICustomerService customerService;
 
-    @RequestMapping({"/", "/index"})
+    @RequestMapping({"/index"})
     public String index() {
         return "index";
     }

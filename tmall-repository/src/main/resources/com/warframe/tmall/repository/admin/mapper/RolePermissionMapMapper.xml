@@ -17,6 +17,7 @@
     from admin_role_permission_map
     where id = #{id,jdbcType=BIGINT}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from admin_role_permission_map
     where id = #{id,jdbcType=BIGINT}
@@ -70,4 +71,11 @@
       permission_id = #{permissionId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="getPermissionIdsByRoleId" parameterType="java.lang.Long" >
+    select
+    map.permission_id
+    from admin_role_permission_map map
+    where role_id = #{roleId,jdbcType=BIGINT}
+  </select>
 </mapper>

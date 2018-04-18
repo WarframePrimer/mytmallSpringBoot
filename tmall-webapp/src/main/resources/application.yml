@@ -67,6 +67,6 @@ mybatis:
 
 server:
   # 端口
-  port: 80
+  port: 8080
   # 上下文路径
   context-path: /tmall-web
