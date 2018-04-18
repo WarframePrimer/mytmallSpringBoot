@@ -93,17 +93,20 @@ public class ShiroConfig {
 //        filters.put("logout",null);
         shiroFilterFactoryBean.setFilters(filters);
 
+        //拦截器
         Map<String, String> filterChainDefinitionManager = new LinkedHashMap<String, String>();
+        //配置不会被拦截的链接 顺序判断
+        filterChainDefinitionManager.put("/static/**","anon");
         filterChainDefinitionManager.put("/logout", "logout");
         filterChainDefinitionManager.put("/user/**", "authc,roles[ROLE_USER]");//用户为ROLE_USER 角色可以访问。由用户角色控制用户行为。
         filterChainDefinitionManager.put("/events/**", "authc,roles[ROLE_ADMIN]");
-        //        filterChainDefinitionManager.put("/user/edit/**", "authc,perms[user:edit]");// 这里为了测试，固定写死的值，也可以从数据库或其他配置中读取，此处是用权限控制
-
-        filterChainDefinitionManager.put("/**", "anon");
+        // authc:所有url都必须认证通过才可以访问；anon:所有url都可以匿名访问
+        filterChainDefinitionManager.put("/**", "authc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionManager);
 
-
-        shiroFilterFactoryBean.setSuccessUrl("/");
+        shiroFilterFactoryBean.setLoginUrl("/login");
+        shiroFilterFactoryBean.setSuccessUrl("/index");
+        //未授权界面
         shiroFilterFactoryBean.setUnauthorizedUrl("/403");
         return shiroFilterFactoryBean;
     }
