@@ -1,8 +1,8 @@
-package com.warframe.tmall.service.serviceImpl;
+package com.warframe.tmall.service.web.serviceImpl;
 
 import com.warframe.tmall.domain.web.Customer;
 import com.warframe.tmall.repository.web.mapper.CustomerMapper;
-import com.warframe.tmall.service.ICustomerService;
+import com.warframe.tmall.service.web.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

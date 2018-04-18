@@ -1,4 +1,4 @@
-package com.warframe.tmall.service;
+package com.warframe.tmall.service.web;
 
 import com.warframe.tmall.domain.web.Customer;
 

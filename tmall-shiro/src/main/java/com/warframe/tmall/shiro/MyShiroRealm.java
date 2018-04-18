@@ -1,14 +1,9 @@
 package com.warframe.tmall.shiro;
 
-import com.warframe.tmall.domain.admin.Permission;
 import com.warframe.tmall.domain.admin.Role;
 import com.warframe.tmall.domain.admin.User;
-import com.warframe.tmall.repository.admin.mapper.PermissionMapper;
-import com.warframe.tmall.repository.admin.mapper.RoleMapper;
-import com.warframe.tmall.repository.admin.mapper.RolePermissionMapMapper;
-import com.warframe.tmall.repository.admin.mapper.UserMapper;
+import com.warframe.tmall.service.admin.IUserService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -29,13 +24,10 @@ import java.util.*;
 public class MyShiroRealm extends AuthorizingRealm {
 
     @Autowired
-    private UserMapper userMapper;
+    private IUserService userService;
 
-    @Autowired
-    private PermissionMapper permissionMapper;
 
-    @Autowired
-    private RolePermissionMapMapper rolePermissionMapMapper;
+
 
 
     /**
@@ -48,24 +40,19 @@ public class MyShiroRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         log.info("doGetAuthorizationInfo+" + principalCollection.toString());
 
-        User user = userMapper.selectByUserName((String) principalCollection.getPrimaryPrincipal());
+        User user = userService.selectByUserName((String) principalCollection.getPrimaryPrincipal());
 
         //把principals放session中 key=userId value=principals
         SecurityUtils.getSubject().getSession().setAttribute(String.valueOf(user.getId()), SecurityUtils.getSubject().getPrincipals());
 
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         //赋予角色
-        Role role = userMapper.getRoleByUserId(user.getId());
+        Role role = userService.getRoleByUserId(user.getId());
         info.addRole(role.getRoleName());
 
         //赋予权限
-        List<Long> permissionIds = rolePermissionMapMapper.getPermissionIdsByRoleId(role.getId());
-        for (Long permissionId : permissionIds) {
-            Permission permission = permissionMapper.selectByPrimaryKey(permissionId);
-            if (StringUtils.isNoneBlank(permission.getPermissionAction())) {
-                info.addStringPermission(permission.getPermissionName());
-            }
-        }
+        List<String> perms = userService.getPerms(user.getId());
+        info.addStringPermissions(perms);
 
         return info;
     }
@@ -86,13 +73,14 @@ public class MyShiroRealm extends AuthorizingRealm {
         String username = token.getUsername();
         String password = String.valueOf(token.getPassword());
 
-        User user = userMapper.selectByUserName(username);
+        User user = userService.selectByUserName(username);
         if (user != null) {
 //            byte[] salt = Encodes.decodeHex(user.getSalt());
 //            ShiroUser shiroUser=new ShiroUser(user.getId(), user.getLoginName(), user.getName());
             //设置用户session
             Session session = SecurityUtils.getSubject().getSession();
             session.setAttribute("user", user);
+            //第三个参数是当前realm的名称
             return new SimpleAuthenticationInfo(username, user.getPassword(), getName());
         } else {
             return null;

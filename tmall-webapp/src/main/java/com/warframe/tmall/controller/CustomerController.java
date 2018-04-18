@@ -1,7 +1,7 @@
 package com.warframe.tmall.controller;
 
 import com.warframe.tmall.domain.web.Customer;
-import com.warframe.tmall.service.ICustomerService;
+import com.warframe.tmall.service.web.ICustomerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

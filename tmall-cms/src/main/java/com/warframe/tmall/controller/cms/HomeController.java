@@ -1,7 +1,7 @@
 package com.warframe.tmall.controller.cms;
 
 import com.warframe.tmall.domain.web.Customer;
-import com.warframe.tmall.service.ICustomerService;
+import com.warframe.tmall.service.web.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
