@@ -3,9 +3,11 @@ package com.warframe.tmall.repository;
 import com.warframe.tmall.domain.TbItem;
 import com.warframe.tmall.domain.TbItemExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface TbItemMapper {
     int countByExample(TbItemExample example);
 

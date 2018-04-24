@@ -4,9 +4,11 @@ package com.warframe.tmall.repository;
 import com.warframe.tmall.domain.TbCategorySecondary;
 import com.warframe.tmall.domain.TbCategorySecondaryExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface TbCategorySecondaryMapper {
     int countByExample(TbCategorySecondaryExample example);
 

@@ -16,6 +16,12 @@
         <module>tmall-common</module>
         <module>tmall-cms</module>
         <module>tmall-shiro</module>
+        <module>tmall-web-cart</module>
+        <module>tmall-web-item</module>
+        <module>tmall-web-order</module>
+        <module>tmall-web-portal</module>
+        <module>tmall-web-sso</module>
+        <module>tmall-web-search</module>
     </modules>
 
     <parent>

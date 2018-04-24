@@ -4,9 +4,11 @@ package com.warframe.tmall.repository;
 import com.warframe.tmall.domain.TbOrderItem;
 import com.warframe.tmall.domain.TbOrderItemExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface TbOrderItemMapper {
     int countByExample(TbOrderItemExample example);
 

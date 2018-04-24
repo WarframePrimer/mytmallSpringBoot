@@ -5,9 +5,10 @@ package com.warframe.tmall.repository;
 import com.warframe.tmall.domain.TbItemDesc;
 import com.warframe.tmall.domain.TbItemDescExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface TbItemDescMapper {
     int countByExample(TbItemDescExample example);
 

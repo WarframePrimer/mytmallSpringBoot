@@ -11,8 +11,6 @@ import com.warframe.tmall.redis.JedisClient;
 import com.warframe.tmall.repository.TbItemMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -33,7 +31,6 @@ import java.util.List;
 @Slf4j
 public class CartServiceImpl implements CartService {
 
-    private static final Logger logger = LoggerFactory.getLogger(CartServiceImpl.class);
 
     @Value("${redisKey.prefix.cart_info_profix}")
     private String CART_INFO_PROFIX;
@@ -59,7 +56,7 @@ public class CartServiceImpl implements CartService {
         try {
             cartInfoString = jedisClient.get(key);
         } catch (Exception e) {
-            logger.error("Redis出错!", e);
+            log.error("Redis出错!", e);
         }
 
         TbItem item = null;
@@ -86,7 +83,7 @@ public class CartServiceImpl implements CartService {
             }
 
         } catch (Exception e) {
-            logger.error("Redis出错!", e);
+            log.error("Redis出错!", e);
         }
 
             CartInfo cartInfo = new CartInfo();
@@ -106,13 +103,13 @@ public class CartServiceImpl implements CartService {
 
                 cartInfos.add(cartInfo);
 
-                logger.debug("第一次保存商品到Redis uuid:" + uuid);
+                log.debug("第一次保存商品到Redis uuid:" + uuid);
 
                 try {
                     jedisClient.set(key, FastJsonConvert.convertObjectToJSON(cartInfos));
                     jedisClient.expire(key, REDIS_CART_EXPIRE_TIME);
                 } catch (Exception e) {
-                    logger.error("Redis出错!", e);
+                    log.error("Redis出错!", e);
                 }
 
                 return XbinResult.build(200, "ok", cartInfo);
@@ -129,22 +126,22 @@ public class CartServiceImpl implements CartService {
                             list.add(Info);
                             flag = false;
 
-                            logger.debug("商品已经存在数量加" + pcount + "个 uuid:" + uuid);
+                            log.debug("商品已经存在数量加" + pcount + "个 uuid:" + uuid);
                         }
                     }
                     if (flag) {
                         list.add(cartInfo);
-                        logger.debug("商品不存在数量为" + pcount + "个 uuid:" + uuid);
+                        log.debug("商品不存在数量为" + pcount + "个 uuid:" + uuid);
                     }
                 }
 
-                logger.debug("商品添加完成 购物车" + list.size() + "件商品 uuid:" + uuid);
+                log.debug("商品添加完成 购物车" + list.size() + "件商品 uuid:" + uuid);
 
                 try {
                     jedisClient.set(key, FastJsonConvert.convertObjectToJSON(list));
                     jedisClient.expire(key, REDIS_CART_EXPIRE_TIME);
                 } catch (Exception e) {
-                    logger.error("Redis出错!", e);
+                    log.error("Redis出错!", e);
                 }
 
                 return XbinResult.build(200, "ok", cartInfo);

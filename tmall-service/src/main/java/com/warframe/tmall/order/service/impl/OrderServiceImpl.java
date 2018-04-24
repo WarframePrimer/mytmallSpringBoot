@@ -13,6 +13,7 @@ import com.warframe.tmall.redis.JedisClient;
 import com.warframe.tmall.repository.TbOrderItemMapper;
 import com.warframe.tmall.repository.TbOrderMapper;
 import com.warframe.tmall.order.service.OrderService;
+import com.warframe.tmall.sso.service.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
