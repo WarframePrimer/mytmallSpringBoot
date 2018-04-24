@@ -9,6 +9,11 @@ project:
     versionControlPath: ssh://git@github.com:WarframePrimer/mytmallSpringBoot.git
     framework: springboot
 
+beetl:
+  templates-path: templates/
+  config:
+      html-tag-flag: true
+
 spring:
     application:
         name: tmall-cms
@@ -18,12 +23,12 @@ spring:
           charset: UTF-8
           force: true
 
-    ## jsp配置
-    mvc:
-        view:
-          prefix: /WEB-INF/page/
-          suffix: .jsp
-        date-format: yyyy-MM-dd HH:mm:ss
+#    ## jsp配置
+#    mvc:
+#        view:
+#          prefix: /WEB-INF/page/
+#          suffix: .jsp
+#        date-format: yyyy-MM-dd HH:mm:ss
 #    ## Freemarker 配置
 #    freemarker:
 #        ## 文件配置路径
