@@ -42,6 +42,12 @@
 
             </exclusions>
         </dependency>
+        <!--beetl模板免配置-->
+        <dependency>
+            <groupId>com.piggsoft</groupId>
+            <artifactId>beetl-spring-boot-starter</artifactId>
+            <version>0.0.3</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -55,18 +61,18 @@
             <!--<artifactId>spring-boot-starter-freemarker</artifactId>-->
         <!--</dependency>-->
 
-        <!-- thmleaf模板依赖. -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
+        <!--&lt;!&ndash; thmleaf模板依赖. &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-thymeleaf</artifactId>-->
+        <!--</dependency>-->
 
-        <!-- jsp依赖 -->
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-jasper</artifactId>
-            <!--<scope>provided</scope>-->
-        </dependency>
+        <!--&lt;!&ndash; jsp依赖 &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.apache.tomcat.embed</groupId>-->
+            <!--<artifactId>tomcat-embed-jasper</artifactId>-->
+            <!--&lt;!&ndash;<scope>provided</scope>&ndash;&gt;-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -100,6 +106,8 @@
             <artifactId>tmall-shiro</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
+
 
     </dependencies>
 

@@ -8,7 +8,7 @@
  */
 package com.warframe.tmall.common.util;
 
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 import java.sql.Timestamp;
 import java.text.ParseException;
@@ -23,7 +23,8 @@ import java.util.List;
  * 日期工具类
  * 
  */
-public class DateUtils extends org.apache.commons.lang.time.DateUtils {
+@Slf4j
+public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
 	public static final String TIME_WITH_MINUTE_PATTERN = "HH:mm";
 
@@ -46,7 +47,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 	 */
 	public final static int COMP_MODEL_DATETIME = 3;
 
-	private static Logger logger = Logger.getLogger(DateUtils.class);
+//	private static log log = log.getlog(DateUtils.class);
 
 	/**
 	 * 要用到的DATE Format的定义
@@ -76,7 +77,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 		try {
 			return parseDate(str, new String[] { parsePatterns });
 		} catch (ParseException e) {
-			logger.error(e);
+			log.error(e.toString());
 			return null;
 		}
 	}
@@ -525,7 +526,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 		try {
 			sRet = formatter.format(dt).toString();
 		} catch (Exception e) {
-			logger.error(e);
+			log.error(e.toString());
 			sRet = null;
 		}
 
@@ -965,7 +966,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 		try {
 			date = sdf.parse(dateString);
 		} catch (ParseException e) {
-			logger.error(e);
+			log.error(e.toString());
 		}
 		return date;
 	}
@@ -993,7 +994,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 		try {
 			date1 = sdf.parse(dateStr);
 		} catch (ParseException e) {
-			logger.error(e);
+			log.error(e.toString());
 		}
 		return date1;
 	}
@@ -1205,7 +1206,7 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
 		try {
 			return formatter.parse(dateStr);
 		} catch (ParseException e) {
-			logger.error(e);
+			log.error(e.toString());
 			return null;
 		}
 	}

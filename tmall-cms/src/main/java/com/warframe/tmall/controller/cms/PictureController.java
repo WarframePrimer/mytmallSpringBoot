@@ -3,6 +3,7 @@ package com.warframe.tmall.controller.cms;
 
 import com.warframe.tmall.common.util.FastJsonConvert;
 import com.warframe.tmall.common.util.StorageService;
+import com.warframe.tmall.configuration.FastDFSClientWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,28 +23,31 @@ import java.util.HashMap;
 @Slf4j
 public class PictureController {
 
-    @Value("${fastdfs.base.url}")
-    private String FASTDFS_BASE_URL;
+//    @Value("${fastdfs.base.url}")
+//    private String FASTDFS_BASE_URL;
     
+//    @Autowired
+//    private StorageService storageService;
     @Autowired
-    private StorageService storageService;
+    private FastDFSClientWrapper fastDFSClientWrapper;
 
     @RequestMapping("/pic/upload")
     @ResponseBody
     public String picUpload(MultipartFile uploadFile, MultipartFile wangEditorH5File) {
         if (uploadFile != null) {
 
-            String oName = uploadFile.getOriginalFilename();
-
-            String extName = oName.substring(oName.indexOf(".") + 1);
+//            String oName = uploadFile.getOriginalFilename();
+//
+//            String extName = oName.substring(oName.indexOf(".") + 1);
 
             HashMap<String, Object> map = new HashMap<>();
 
             try {
                 // String uploadUrl = FastDFSClientUtils.upload(uploadFile.getBytes(), extName);
-            	String uploadUrl = storageService.upload(uploadFile.getBytes(), extName);
+            	String uploadUrl = fastDFSClientWrapper.uploadFile(uploadFile);
                 map.put("success", "上传成功");
-                map.put("url", FASTDFS_BASE_URL + uploadUrl);
+//                map.put("url", FASTDFS_BASE_URL + uploadUrl);
+                map.put("url", uploadUrl);
 
             } catch (IOException e) {
                 log.error("图片上传失败！");
@@ -53,14 +57,15 @@ public class PictureController {
             }
             return FastJsonConvert.convertObjectToJSON(map);
         } else if (wangEditorH5File != null) {
-            String oName = wangEditorH5File.getOriginalFilename();
-
-            String extName = oName.substring(oName.indexOf(".") + 1);
+//            String oName = wangEditorH5File.getOriginalFilename();
+//
+//            String extName = oName.substring(oName.indexOf(".") + 1);
 
             try {
                 //String uploadUrl = FastDFSClientUtils.upload(wangEditorH5File.getBytes(), extName);
-            	String uploadUrl = storageService.upload(wangEditorH5File.getBytes(), extName);
-                String url = FASTDFS_BASE_URL + uploadUrl;
+            	String uploadUrl = fastDFSClientWrapper.uploadFile(wangEditorH5File);
+//                String url = FASTDFS_BASE_URL + uploadUrl;
+                String url = uploadUrl;
 
                 return url;
             } catch (IOException e) {

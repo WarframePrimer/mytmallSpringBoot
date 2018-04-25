@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.binux.mapper.TbManageUserMapper" >
-  <resultMap id="BaseResultMap" type="cn.binux.pojo.TbManageUser" >
+<mapper namespace="com.warframe.tmall.repository.TbManageUserMapper" >
+  <resultMap id="BaseResultMap" type="com.warframe.tmall.domain.TbManageUser" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
@@ -73,7 +73,7 @@
   <sql id="Base_Column_List" >
     id, username, name, password, phone, email, job, created, updated
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.binux.pojo.TbManageUserExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.warframe.tmall.domain.TbManageUserExample" >
     select
     <if test="distinct" >
       distinct
@@ -97,13 +97,13 @@
     delete from tb_manage_user
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.binux.pojo.TbManageUserExample" >
+  <delete id="deleteByExample" parameterType="com.warframe.tmall.domain.TbManageUserExample" >
     delete from tb_manage_user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="cn.binux.pojo.TbManageUser" >
+  <insert id="insert" parameterType="com.warframe.tmall.domain.TbManageUser" >
     insert into tb_manage_user (id, username, name, 
       password, phone, email, 
       job, created, updated
@@ -113,7 +113,7 @@
       #{job,jdbcType=VARCHAR}, #{created,jdbcType=TIMESTAMP}, #{updated,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="cn.binux.pojo.TbManageUser" >
+  <insert id="insertSelective" parameterType="com.warframe.tmall.domain.TbManageUser" >
     insert into tb_manage_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -174,7 +174,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.binux.pojo.TbManageUserExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.warframe.tmall.domain.TbManageUserExample" resultType="java.lang.Integer" >
     select count(*) from tb_manage_user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -230,7 +230,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.binux.pojo.TbManageUser" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.warframe.tmall.domain.TbManageUser" >
     update tb_manage_user
     <set >
       <if test="username != null" >
@@ -260,7 +260,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.binux.pojo.TbManageUser" >
+  <update id="updateByPrimaryKey" parameterType="com.warframe.tmall.domain.TbManageUser" >
     update tb_manage_user
     set username = #{username,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},

@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * @Description 默认页面
  * @date 2018-04-18 17:50
  */
-@Configuration
+//@Configuration
 public class DefaultView extends WebMvcConfigurerAdapter {
 
     @Override

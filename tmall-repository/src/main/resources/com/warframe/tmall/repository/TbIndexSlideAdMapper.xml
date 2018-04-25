@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.binux.mapper.TbIndexSlideAdMapper" >
-  <resultMap id="BaseResultMap" type="cn.binux.pojo.TbIndexSlideAd" >
+<mapper namespace="com.warframe.tmall.repository.TbIndexSlideAdMapper" >
+  <resultMap id="BaseResultMap" type="com.warframe.tmall.domain.TbIndexSlideAd" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="alt" property="alt" jdbcType="VARCHAR" />
     <result column="clog" property="clog" jdbcType="VARCHAR" />
@@ -78,7 +78,7 @@
     id, alt, clog, ext1, href, logV, src, srcB, status, sort_order, logDomain, created, 
     updated
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.binux.pojo.TbIndexSlideAdExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.warframe.tmall.domain.TbIndexSlideAdExample" >
     select
     <if test="distinct" >
       distinct
@@ -102,13 +102,13 @@
     delete from tb_index_slide_ad
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.binux.pojo.TbIndexSlideAdExample" >
+  <delete id="deleteByExample" parameterType="com.warframe.tmall.domain.TbIndexSlideAdExample" >
     delete from tb_index_slide_ad
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="cn.binux.pojo.TbIndexSlideAd" >
+  <insert id="insert" parameterType="com.warframe.tmall.domain.TbIndexSlideAd" >
     insert into tb_index_slide_ad (id, alt, clog, 
       ext1, href, logV, src, 
       srcB, status, sort_order, 
@@ -120,7 +120,7 @@
       #{logdomain,jdbcType=VARCHAR}, #{created,jdbcType=TIMESTAMP}, #{updated,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="cn.binux.pojo.TbIndexSlideAd" >
+  <insert id="insertSelective" parameterType="com.warframe.tmall.domain.TbIndexSlideAd" >
     insert into tb_index_slide_ad
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -205,7 +205,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.binux.pojo.TbIndexSlideAdExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.warframe.tmall.domain.TbIndexSlideAdExample" resultType="java.lang.Integer" >
     select count(*) from tb_index_slide_ad
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -277,7 +277,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.binux.pojo.TbIndexSlideAd" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.warframe.tmall.domain.TbIndexSlideAd" >
     update tb_index_slide_ad
     <set >
       <if test="alt != null" >
@@ -319,7 +319,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.binux.pojo.TbIndexSlideAd" >
+  <update id="updateByPrimaryKey" parameterType="com.warframe.tmall.domain.TbIndexSlideAd" >
     update tb_index_slide_ad
     set alt = #{alt,jdbcType=VARCHAR},
       clog = #{clog,jdbcType=VARCHAR},
