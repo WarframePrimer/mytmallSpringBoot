@@ -97,6 +97,9 @@ fdfs:
   trackerList: 106.15.231.173:22122            #TrackerList参数,支持多个
 
 
+redis:
+  password:
+
 #rediskey配置
 redisKey:
   expire_time:
@@ -107,9 +110,22 @@ redisKey:
     item_info_base_suffix:
     cart_order_info_profix:
     cart_order_index_profix:
+    index_ad:
+    user_session:
+    verifycode:
+    mobile_login_code:
   suffix:
     item_info_base_suffix:
     item_info_desc_suffix:
+
+login:
+  random_number:
+  success_url:
+  validation:
+    ismobileengaged:
+    isemailengaged:
+    ispinengaged:
+
 
 
 
