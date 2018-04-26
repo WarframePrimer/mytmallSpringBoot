@@ -16,7 +16,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ServletComponentScan(basePackages = { "com.warframe.tmall"})
 @ComponentScan(basePackages = { "com.warframe.tmall" })
-@MapperScan(basePackages={"com.warframe.tmall.repository.*.mapper"})
+@MapperScan(basePackages={"com.warframe.tmall.repository"})
 public class TmallWebPortalApplication extends SpringBootServletInitializer {
 
     @Override

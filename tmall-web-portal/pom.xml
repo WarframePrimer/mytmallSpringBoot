@@ -58,10 +58,10 @@
         <!--</dependency>-->
 
         <!-- thmleaf模板依赖. -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-thymeleaf</artifactId>-->
+        <!--</dependency>-->
 
         <!-- jsp依赖 -->
         <dependency>
@@ -83,6 +83,13 @@
             <groupId>com.warframe.tmall</groupId>
             <artifactId>tmall-service</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!--beetl模板免配置-->
+        <dependency>
+            <groupId>com.piggsoft</groupId>
+            <artifactId>beetl-spring-boot-starter</artifactId>
+            <version>0.0.3</version>
         </dependency>
     </dependencies>
 
