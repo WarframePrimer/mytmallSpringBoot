@@ -1,16 +1,15 @@
 package com.warframe.tmall.repository;
 
 
-import com.warframe.tmall.domain.TbUser;
-import com.warframe.tmall.domain.TbUserExample;
+import com.warframe.tmall.domain.pojo.TbUser;
+import com.warframe.tmall.domain.pojo.TbUserExample;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Set;
 
-@Repository
 public interface TbUserMapper {
-    int countByExample(TbUserExample example);
+    long countByExample(TbUserExample example);
 
     int deleteByExample(TbUserExample example);
 
@@ -31,4 +30,10 @@ public interface TbUserMapper {
     int updateByPrimaryKeySelective(TbUser record);
 
     int updateByPrimaryKey(TbUser record);
+
+    Set<String> getRoles(@Param("username") String username);
+
+    Set<String> getPermissions(@Param("username") String username);
+
+    List<String> getPermsByRoleId(@Param("id") int id);
 }

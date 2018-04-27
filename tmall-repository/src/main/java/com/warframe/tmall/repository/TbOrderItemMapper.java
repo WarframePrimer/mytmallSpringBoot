@@ -1,16 +1,13 @@
 package com.warframe.tmall.repository;
 
-
-import com.warframe.tmall.domain.TbOrderItem;
-import com.warframe.tmall.domain.TbOrderItemExample;
+import com.warframe.tmall.domain.pojo.TbOrderItem;
+import com.warframe.tmall.domain.pojo.TbOrderItemExample;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
 public interface TbOrderItemMapper {
-    int countByExample(TbOrderItemExample example);
+    long countByExample(TbOrderItemExample example);
 
     int deleteByExample(TbOrderItemExample example);
 
@@ -31,4 +28,6 @@ public interface TbOrderItemMapper {
     int updateByPrimaryKeySelective(TbOrderItem record);
 
     int updateByPrimaryKey(TbOrderItem record);
+
+    List<TbOrderItem> getWeekHot();
 }

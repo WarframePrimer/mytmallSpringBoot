@@ -1,14 +1,14 @@
 package com.warframe.tmall.repository;
 
 
-import com.warframe.tmall.domain.TbItemParamItem;
-import com.warframe.tmall.domain.TbItemParamItemExample;
+import com.warframe.tmall.domain.pojo.TbItemParamItem;
+import com.warframe.tmall.domain.pojo.TbItemParamItemExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface TbItemParamItemMapper {
-    int countByExample(TbItemParamItemExample example);
+    long countByExample(TbItemParamItemExample example);
 
     int deleteByExample(TbItemParamItemExample example);
 

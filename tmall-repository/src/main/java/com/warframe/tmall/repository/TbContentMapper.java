@@ -1,16 +1,14 @@
 package com.warframe.tmall.repository;
 
 
-import com.warframe.tmall.domain.TbContent;
-import com.warframe.tmall.domain.TbContentExample;
+import com.warframe.tmall.domain.pojo.TbContent;
+import com.warframe.tmall.domain.pojo.TbContentExample;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
 public interface TbContentMapper {
-    int countByExample(TbContentExample example);
+    long countByExample(TbContentExample example);
 
     int deleteByExample(TbContentExample example);
 

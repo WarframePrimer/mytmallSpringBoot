@@ -1,14 +1,14 @@
 package com.warframe.tmall.repository;
 
 
-import com.warframe.tmall.domain.TbContentCategory;
-import com.warframe.tmall.domain.TbContentCategoryExample;
+import com.warframe.tmall.domain.pojo.TbContentCategory;
+import com.warframe.tmall.domain.pojo.TbContentCategoryExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface TbContentCategoryMapper {
-    int countByExample(TbContentCategoryExample example);
+    long countByExample(TbContentCategoryExample example);
 
     int deleteByExample(TbContentCategoryExample example);
 
