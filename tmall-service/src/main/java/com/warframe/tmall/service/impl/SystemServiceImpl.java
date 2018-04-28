@@ -15,9 +15,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * @author Exrickx
- */
 @Service
 public class SystemServiceImpl implements SystemService {
 

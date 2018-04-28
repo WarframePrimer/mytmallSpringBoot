@@ -4,10 +4,11 @@ package com.warframe.tmall.repository;
 import com.warframe.tmall.domain.pojo.TbUser;
 import com.warframe.tmall.domain.pojo.TbUserExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Set;
-
+@Repository
 public interface TbUserMapper {
     long countByExample(TbUserExample example);
 

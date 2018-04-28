@@ -4,9 +4,10 @@ package com.warframe.tmall.repository;
 import com.warframe.tmall.domain.pojo.TbLog;
 import com.warframe.tmall.domain.pojo.TbLogExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface TbLogMapper {
     long countByExample(TbLogExample example);
 

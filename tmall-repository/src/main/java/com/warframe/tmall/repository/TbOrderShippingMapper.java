@@ -4,9 +4,10 @@ package com.warframe.tmall.repository;
 import com.warframe.tmall.domain.pojo.TbOrderShipping;
 import com.warframe.tmall.domain.pojo.TbOrderShippingExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface TbOrderShippingMapper {
     long countByExample(TbOrderShippingExample example);
 

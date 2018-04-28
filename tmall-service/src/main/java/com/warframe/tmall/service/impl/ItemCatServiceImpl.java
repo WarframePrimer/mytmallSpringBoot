@@ -3,6 +3,7 @@ package com.warframe.tmall.service.impl;
 
 import com.warframe.tmall.common.exception.TmallException;
 import com.warframe.tmall.common.pojo.ZTreeNode;
+import com.warframe.tmall.common.utils.MathUtil;
 import com.warframe.tmall.domain.dto.DtoUtil;
 import com.warframe.tmall.domain.pojo.TbItemCat;
 import com.warframe.tmall.domain.pojo.TbItemCatExample;
@@ -96,7 +97,7 @@ public class ItemCatServiceImpl implements ItemCatService {
     public void deleteZTree(Long id) {
 
         //查询该节点所有子节点
-        List<ZTreeNode> node=getItemCatList(Math.toIntExact(id));
+        List<ZTreeNode> node=getItemCatList(MathUtil.toIntExact(id));
         if(node.size()>0){
             //如果有子节点，遍历子节点
             for(int i=0;i<node.size();i++){

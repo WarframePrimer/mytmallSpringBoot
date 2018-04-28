@@ -4,9 +4,10 @@ package com.warframe.tmall.repository;
 import com.warframe.tmall.domain.pojo.TbContentCategory;
 import com.warframe.tmall.domain.pojo.TbContentCategoryExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface TbContentCategoryMapper {
     long countByExample(TbContentCategoryExample example);
 

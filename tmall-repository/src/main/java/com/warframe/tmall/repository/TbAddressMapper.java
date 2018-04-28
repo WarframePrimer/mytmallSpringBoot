@@ -4,9 +4,11 @@ package com.warframe.tmall.repository;
 import com.warframe.tmall.domain.pojo.TbAddress;
 import com.warframe.tmall.domain.pojo.TbAddressExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface TbAddressMapper {
     long countByExample(TbAddressExample example);
 

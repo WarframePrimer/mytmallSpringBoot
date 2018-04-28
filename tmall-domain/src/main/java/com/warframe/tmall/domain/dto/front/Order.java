@@ -1,6 +1,8 @@
 package com.warframe.tmall.domain.dto.front;
 
-import cn.exrick.manager.pojo.TbAddress;
+
+
+import com.warframe.tmall.domain.pojo.TbAddress;
 
 import java.io.Serializable;
 import java.util.List;

@@ -4,9 +4,10 @@ package com.warframe.tmall.repository;
 import com.warframe.tmall.domain.pojo.TbItemParam;
 import com.warframe.tmall.domain.pojo.TbItemParamExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface TbItemParamMapper {
     long countByExample(TbItemParamExample example);
 

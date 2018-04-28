@@ -4,9 +4,10 @@ package com.warframe.tmall.repository;
 import com.warframe.tmall.domain.pojo.TbRolePerm;
 import com.warframe.tmall.domain.pojo.TbRolePermExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface TbRolePermMapper {
     long countByExample(TbRolePermExample example);
 

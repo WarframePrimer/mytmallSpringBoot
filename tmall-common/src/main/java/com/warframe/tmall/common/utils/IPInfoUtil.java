@@ -1,7 +1,7 @@
 package com.warframe.tmall.common.utils;
 
-import cn.exrick.common.pojo.IpWeatherResult;
 import com.google.gson.Gson;
+import com.warframe.tmall.common.pojo.IpWeatherResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

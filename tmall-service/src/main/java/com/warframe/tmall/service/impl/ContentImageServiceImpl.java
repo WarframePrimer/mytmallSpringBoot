@@ -4,6 +4,7 @@ package com.warframe.tmall.service.impl;
 import com.warframe.tmall.common.exception.TmallException;
 import com.warframe.tmall.common.jedis.JedisClient;
 import com.warframe.tmall.common.pojo.DataTablesResult;
+import com.warframe.tmall.common.utils.MathUtil;
 import com.warframe.tmall.domain.dto.DtoUtil;
 import com.warframe.tmall.domain.dto.ImageDto;
 import com.warframe.tmall.domain.pojo.TbContentCategory;
@@ -36,7 +37,7 @@ public class ContentImageServiceImpl implements ContentImageService {
     @Override
     public TbImage getContentImageById(Long id) {
 
-        TbImage tbImage=tbImageMapper.selectByPrimaryKey(Math.toIntExact(id));
+        TbImage tbImage=tbImageMapper.selectByPrimaryKey(MathUtil.toIntExact(id));
         if(tbImage==null){
             throw new TmallException("通过id获取图片失败");
         }

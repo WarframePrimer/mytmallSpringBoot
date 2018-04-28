@@ -3,9 +3,10 @@ package com.warframe.tmall.repository;
 import com.warframe.tmall.domain.pojo.TbMember;
 import com.warframe.tmall.domain.pojo.TbMemberExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface TbMemberMapper {
     long countByExample(TbMemberExample example);
 

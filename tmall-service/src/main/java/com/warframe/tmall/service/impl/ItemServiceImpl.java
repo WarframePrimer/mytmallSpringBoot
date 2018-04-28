@@ -6,6 +6,7 @@ import com.warframe.tmall.common.exception.TmallException;
 import com.warframe.tmall.common.jedis.JedisClient;
 import com.warframe.tmall.common.pojo.DataTablesResult;
 import com.warframe.tmall.common.utils.IDUtil;
+import com.warframe.tmall.common.utils.MathUtil;
 import com.warframe.tmall.domain.dto.DtoUtil;
 import com.warframe.tmall.domain.dto.ItemDto;
 import com.warframe.tmall.domain.pojo.TbItem;
@@ -19,8 +20,6 @@ import com.warframe.tmall.service.ItemService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.jms.core.JmsTemplate;
-import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -41,10 +40,10 @@ public class ItemServiceImpl implements ItemService {
     private TbItemDescMapper tbItemDescMapper;
     @Autowired
     private TbItemCatMapper tbItemCatMapper;
-    @Autowired
-    private JmsTemplate jmsTemplate;
-    @Resource
-    private Destination topicDestination;
+//    @Autowired
+//    private JmsTemplate jmsTemplate;
+//    @Resource
+//    private Destination topicDestination;
     @Autowired
     private JedisClient jedisClient;
 
@@ -116,7 +115,7 @@ public class ItemServiceImpl implements ItemService {
         TbItemExample example=new TbItemExample();
         Long count=tbItemMapper.countByExample(example);
         DataTablesResult result=new DataTablesResult();
-        result.setRecordsTotal(Math.toIntExact(count));
+        result.setRecordsTotal(MathUtil.toIntExact(count));
         return result;
     }
 
@@ -143,7 +142,7 @@ public class ItemServiceImpl implements ItemService {
             throw new TmallException("删除商品详情失败");
         }
         //发送消息同步索引库
-        sendRefreshESMessage("delete",id);
+//        sendRefreshESMessage("delete",id);
         return 0;
     }
 
@@ -172,7 +171,7 @@ public class ItemServiceImpl implements ItemService {
             throw new TmallException("添加商品详情失败");
         }
         //发送消息同步索引库
-        sendRefreshESMessage("add",id);
+//        sendRefreshESMessage("add",id);
         return getNormalItemById(id);
     }
 
@@ -207,7 +206,7 @@ public class ItemServiceImpl implements ItemService {
         //同步缓存
         deleteProductDetRedis(id);
         //发送消息同步索引库
-        sendRefreshESMessage("add",id);
+//        sendRefreshESMessage("add",id);
         return getNormalItemById(id);
     }
 
@@ -221,13 +220,13 @@ public class ItemServiceImpl implements ItemService {
     }
 
     //发送消息同步索引库
-    public void sendRefreshESMessage(String type,Long id) {
-        jmsTemplate.send(topicDestination, new MessageCreator() {
-            @Override
-            public Message createMessage(Session session) throws JMSException {
-                TextMessage textMessage = session.createTextMessage(type+","+String.valueOf(id));
-                return textMessage;
-            }
-        });
-    }
+//    public void sendRefreshESMessage(String type,Long id) {
+//        jmsTemplate.send(topicDestination, new MessageCreator() {
+//            @Override
+//            public Message createMessage(Session session) throws JMSException {
+//                TextMessage textMessage = session.createTextMessage(type+","+String.valueOf(id));
+//                return textMessage;
+//            }
+//        });
+//    }
 }

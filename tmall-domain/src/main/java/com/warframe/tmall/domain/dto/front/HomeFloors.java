@@ -1,6 +1,6 @@
 package com.warframe.tmall.domain.dto.front;
 
-import cn.exrick.manager.pojo.TbImage;
+import com.warframe.tmall.domain.pojo.TbImage;
 
 import java.io.Serializable;
 import java.util.List;

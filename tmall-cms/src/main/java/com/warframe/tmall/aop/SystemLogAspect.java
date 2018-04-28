@@ -4,6 +4,7 @@ package com.warframe.tmall.aop;
 import com.warframe.tmall.annotation.SystemControllerLog;
 import com.warframe.tmall.annotation.SystemServiceLog;
 import com.warframe.tmall.common.utils.IPInfoUtil;
+import com.warframe.tmall.common.utils.MathUtil;
 import com.warframe.tmall.common.utils.ThreadPoolUtil;
 import com.warframe.tmall.domain.pojo.TbLog;
 import com.warframe.tmall.service.SystemService;
@@ -107,7 +108,7 @@ public class SystemLogAspect {
                 long endTime = System.currentTimeMillis();
                 //请求耗时
                 Long logElapsedTime = endTime - beginTime;
-                tbLog.setTime(Math.toIntExact(logElapsedTime));
+                tbLog.setTime(MathUtil.toIntExact(logElapsedTime));
                 tbLog.setCreateDate(logStartTime);
 
                 //调用线程保存至数据库
@@ -157,7 +158,7 @@ public class SystemLogAspect {
                 long endTime = System.currentTimeMillis();
                 //请求耗时
                 Long logElapsedTime = endTime - beginTime;
-                tbLog.setTime(Math.toIntExact(logElapsedTime));
+                tbLog.setTime(MathUtil.toIntExact(logElapsedTime));
                 tbLog.setCreateDate(logStartTime);
 
                 //调用线程保存至数据库

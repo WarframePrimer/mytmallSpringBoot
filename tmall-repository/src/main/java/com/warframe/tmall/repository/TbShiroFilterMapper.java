@@ -4,9 +4,10 @@ package com.warframe.tmall.repository;
 import com.warframe.tmall.domain.pojo.TbShiroFilter;
 import com.warframe.tmall.domain.pojo.TbShiroFilterExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface TbShiroFilterMapper {
     long countByExample(TbShiroFilterExample example);
 

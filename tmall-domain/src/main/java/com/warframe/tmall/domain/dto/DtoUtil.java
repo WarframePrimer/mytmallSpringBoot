@@ -3,6 +3,7 @@ package com.warframe.tmall.domain.dto;
 
 
 import com.warframe.tmall.common.pojo.ZTreeNode;
+import com.warframe.tmall.common.utils.MathUtil;
 import com.warframe.tmall.domain.dto.front.CartProduct;
 import com.warframe.tmall.domain.dto.front.Member;
 import com.warframe.tmall.domain.dto.front.Product;
@@ -105,9 +106,9 @@ public class DtoUtil{
 
         ZTreeNode zTreeNode =new ZTreeNode();
 
-        zTreeNode.setId(Math.toIntExact(tbContentCategory.getId()));
+        zTreeNode.setId(MathUtil.toIntExact(tbContentCategory.getId()));
         zTreeNode.setIsParent(tbContentCategory.getIsParent());
-        zTreeNode.setpId(Math.toIntExact(tbContentCategory.getParentId()));
+        zTreeNode.setpId(MathUtil.toIntExact(tbContentCategory.getParentId()));
         zTreeNode.setName(tbContentCategory.getName());
         zTreeNode.setIcon(tbContentCategory.getIcon());
         zTreeNode.setSortOrder(tbContentCategory.getSortOrder());
@@ -138,11 +139,11 @@ public class DtoUtil{
 
         ZTreeNode zTreeNode =new ZTreeNode();
 
-        zTreeNode.setId(Math.toIntExact(tbItemCat.getId()));
+        zTreeNode.setId(MathUtil.toIntExact(tbItemCat.getId()));
         zTreeNode.setStatus(tbItemCat.getStatus());
         zTreeNode.setSortOrder(tbItemCat.getSortOrder());
         zTreeNode.setName(tbItemCat.getName());
-        zTreeNode.setpId(Math.toIntExact(tbItemCat.getParentId()));
+        zTreeNode.setpId(MathUtil.toIntExact(tbItemCat.getParentId()));
         zTreeNode.setIsParent(tbItemCat.getIsParent());
         zTreeNode.setRemark(tbItemCat.getRemark());
 

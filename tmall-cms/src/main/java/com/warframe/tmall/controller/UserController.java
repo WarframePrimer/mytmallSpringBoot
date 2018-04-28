@@ -1,16 +1,15 @@
 package com.warframe.tmall.controller;
 
-import cn.exrick.common.pojo.DataTablesResult;
-import cn.exrick.common.pojo.Result;
-import cn.exrick.common.utils.GeetestLib;
-import cn.exrick.common.utils.ResultUtil;
-import cn.exrick.manager.annotation.SystemControllerLog;
-import cn.exrick.manager.pojo.TbPermission;
-import cn.exrick.manager.pojo.TbRole;
-import cn.exrick.manager.pojo.TbUser;
-import cn.exrick.manager.service.UserService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+
+import com.warframe.tmall.annotation.SystemControllerLog;
+import com.warframe.tmall.common.pojo.DataTablesResult;
+import com.warframe.tmall.common.pojo.Result;
+import com.warframe.tmall.common.utils.GeetestLib;
+import com.warframe.tmall.common.utils.ResultUtil;
+import com.warframe.tmall.domain.pojo.TbPermission;
+import com.warframe.tmall.domain.pojo.TbRole;
+import com.warframe.tmall.domain.pojo.TbUser;
+import com.warframe.tmall.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
@@ -24,11 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * @author Exrickx
- */
 @RestController
-@Api(description= "管理员管理")
 public class UserController {
 
     final static Logger log= LoggerFactory.getLogger(UserController.class);
@@ -37,7 +32,6 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value = "/geetestInit",method = RequestMethod.GET)
-    @ApiOperation(value = "极验初始化")
     public String geetesrInit(HttpServletRequest request){
 
         GeetestLib gtSdk = new GeetestLib(GeetestLib.id, GeetestLib.key,GeetestLib.newfailback);
@@ -59,10 +53,9 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/login",method = RequestMethod.POST)
-    @ApiOperation(value = "用户登录")
     @SystemControllerLog(description="登录系统")
     public Result<Object> login(String username, String password,
-                                String challenge,String validate,String seccode,
+                                String challenge, String validate, String seccode,
                                 HttpServletRequest request){
 
         //极验验证
@@ -107,7 +100,6 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/logout",method = RequestMethod.GET)
-    @ApiOperation(value = "退出登录")
     public Result<Object> logout(){
 
         Subject subject = SecurityUtils.getSubject();
@@ -116,7 +108,6 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/userInfo",method = RequestMethod.GET)
-    @ApiOperation(value = "获取登录用户信息")
     public Result<TbUser> getUserInfo(){
 
         String username= SecurityUtils.getSubject().getPrincipal().toString();
@@ -126,7 +117,6 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/roleList",method = RequestMethod.GET)
-    @ApiOperation(value = "获取角色列表")
     public DataTablesResult getRoleList(){
 
         DataTablesResult result=userService.getRoleList();
@@ -134,7 +124,6 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/getAllRoles",method = RequestMethod.GET)
-    @ApiOperation(value = "获取所有角色")
     public Result<List<TbRole>> getAllRoles(){
 
         List<TbRole> list=userService.getAllRoles();
@@ -142,7 +131,6 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/roleName",method = RequestMethod.GET)
-    @ApiOperation(value = "判断角色是否已存在")
     public boolean roleName(String name){
 
         if(userService.getRoleByRoleName(name)!=null){
@@ -152,14 +140,12 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/edit/roleName/{id}",method = RequestMethod.GET)
-    @ApiOperation(value = "判断编辑角色是否已存在")
     public boolean roleName(@PathVariable int id, String name){
 
         return userService.getRoleByEditName(id,name);
     }
 
     @RequestMapping(value = "/user/addRole",method = RequestMethod.POST)
-    @ApiOperation(value = "添加角色")
     public Result<Object> addRole(@ModelAttribute TbRole tbRole){
 
         userService.addRole(tbRole);
@@ -167,7 +153,6 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/updateRole",method = RequestMethod.POST)
-    @ApiOperation(value = "更新角色")
     public Result<Object> updateRole(@ModelAttribute TbRole tbRole){
 
         userService.updateRole(tbRole);
@@ -175,7 +160,6 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/delRole/{id}",method = RequestMethod.DELETE)
-    @ApiOperation(value = "删除角色")
     public Result<Object> delRole(@PathVariable int id){
 
         int result=userService.deleteRole(id);
@@ -187,7 +171,6 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/roleCount",method = RequestMethod.GET)
-    @ApiOperation(value = "统计角色数")
     public Result<Object> getRoleCount(){
 
         Long result=userService.countRole();
@@ -195,7 +178,6 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/permissionList",method = RequestMethod.GET)
-    @ApiOperation(value = "获取权限列表")
     public DataTablesResult getPermissionList(){
 
         DataTablesResult result=userService.getPermissionList();
@@ -203,7 +185,6 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/addPermission",method = RequestMethod.POST)
-    @ApiOperation(value = "添加权限")
     public Result<Object> addPermission(@ModelAttribute TbPermission tbPermission){
 
         userService.addPermission(tbPermission);
@@ -211,7 +192,6 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/updatePermission",method = RequestMethod.POST)
-    @ApiOperation(value = "更新权限")
     public Result<Object> updatePermission(@ModelAttribute TbPermission tbPermission){
 
         userService.updatePermission(tbPermission);
@@ -219,7 +199,6 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/delPermission/{id}",method = RequestMethod.DELETE)
-    @ApiOperation(value = "删除权限")
     public Result<Object> delPermission(@PathVariable int id){
 
         userService.deletePermission(id);
@@ -227,7 +206,6 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/permissionCount",method = RequestMethod.GET)
-    @ApiOperation(value = "统计权限数")
     public Result<Object> getPermissionCount(){
 
         Long result=userService.countPermission();
@@ -235,7 +213,6 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/userList",method = RequestMethod.GET)
-    @ApiOperation(value = "获取用户列表")
     public DataTablesResult getUserList(){
 
         DataTablesResult result=userService.getUserList();
@@ -243,28 +220,24 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/username",method = RequestMethod.GET)
-    @ApiOperation(value = "判断用户名是否存在")
     public boolean getUserByName(String username){
 
         return userService.getUserByName(username);
     }
 
     @RequestMapping(value = "/user/phone",method = RequestMethod.GET)
-    @ApiOperation(value = "判断手机是否存在")
     public boolean getUserByPhone(String phone){
 
         return userService.getUserByPhone(phone);
     }
 
     @RequestMapping(value = "/user/email",method = RequestMethod.GET)
-    @ApiOperation(value = "判断邮箱是否存在")
     public boolean getUserByEmail(String email){
 
         return userService.getUserByEmail(email);
     }
 
     @RequestMapping(value = "/user/addUser",method = RequestMethod.POST)
-    @ApiOperation(value = "添加用户")
     public Result<Object> addUser(@ModelAttribute TbUser tbUser){
 
         userService.addUser(tbUser);
@@ -272,7 +245,6 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/updateUser",method = RequestMethod.POST)
-    @ApiOperation(value = "更新用户")
     public Result<Object> updateUser(@ModelAttribute TbUser tbUser){
 
         userService.updateUser(tbUser);
@@ -280,28 +252,24 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/edit/username/{id}",method = RequestMethod.GET)
-    @ApiOperation(value = "判断编辑用户名是否存在")
     public boolean getUserByEditName(@PathVariable Long id, String username){
 
         return userService.getUserByEditName(id,username);
     }
 
     @RequestMapping(value = "/user/edit/phone/{id}",method = RequestMethod.GET)
-    @ApiOperation(value = "判断编辑手机是否存在")
     public boolean getUserByEditPhone(@PathVariable Long id, String phone){
 
         return userService.getUserByEditPhone(id,phone);
     }
 
     @RequestMapping(value = "/user/edit/email/{id}",method = RequestMethod.GET)
-    @ApiOperation(value = "判断编辑用户名是否存在")
     public boolean getUserByEditEmail(@PathVariable Long id, String email){
 
         return userService.getUserByEditEmail(id,email);
     }
 
     @RequestMapping(value = "/user/stop/{id}",method = RequestMethod.PUT)
-    @ApiOperation(value = "停用用户")
     public Result<Object> stopUser(@PathVariable Long id){
 
         userService.changeUserState(id,0);
@@ -309,7 +277,6 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/start/{id}",method = RequestMethod.PUT)
-    @ApiOperation(value = "启用用户")
     public Result<Object> startUser(@PathVariable Long id){
 
         userService.changeUserState(id,1);
@@ -317,7 +284,6 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/changePass",method = RequestMethod.POST)
-    @ApiOperation(value = "修改用户密码")
     public Result<Object> changePass(@ModelAttribute TbUser tbUser){
 
         userService.changePassword(tbUser);
@@ -325,7 +291,6 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/delUser/{id}",method = RequestMethod.DELETE)
-    @ApiOperation(value = "删除用户")
     public Result<Object> delUser(@PathVariable Long id){
 
         userService.deleteUser(id);
@@ -333,7 +298,6 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/userCount",method = RequestMethod.GET)
-    @ApiOperation(value = "统计用户数")
     public Result<Object> getUserCount(){
 
         Long result=userService.countUser();

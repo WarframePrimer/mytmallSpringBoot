@@ -1,11 +1,10 @@
 package com.warframe.tmall.controller;
 
-import cn.exrick.common.pojo.KindEditorResult;
-import cn.exrick.common.pojo.Result;
-import cn.exrick.common.utils.QiniuUtil;
-import cn.exrick.common.utils.ResultUtil;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+
+import com.warframe.tmall.common.pojo.KindEditorResult;
+import com.warframe.tmall.common.pojo.Result;
+import com.warframe.tmall.common.utils.QiniuUtil;
+import com.warframe.tmall.common.utils.ResultUtil;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,11 +16,9 @@ import java.io.File;
 import java.io.IOException;
 
 @RestController
-@Api(description = "图片上传统一接口")
 public class ImageController {
 
     @RequestMapping(value = "/image/imageUpload",method = RequestMethod.POST)
-    @ApiOperation(value = "WebUploader图片上传")
     public Result<Object> uploadFile(@RequestParam("file") MultipartFile files,
                                      HttpServletRequest request){
 
@@ -47,7 +44,6 @@ public class ImageController {
     }
 
     @RequestMapping(value = "/kindeditor/imageUpload",method = RequestMethod.POST)
-    @ApiOperation(value = "KindEditor图片上传")
     public KindEditorResult kindeditor(@RequestParam("imgFile") MultipartFile files, HttpServletRequest request){
 
         KindEditorResult kindEditorResult=new KindEditorResult();

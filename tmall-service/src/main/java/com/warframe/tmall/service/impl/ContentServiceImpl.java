@@ -3,6 +3,7 @@ package com.warframe.tmall.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.google.gson.Gson;
 import com.warframe.tmall.common.exception.TmallException;
 import com.warframe.tmall.common.jedis.JedisClient;
 import com.warframe.tmall.common.pojo.AllGoodsResult;
