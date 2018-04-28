@@ -80,7 +80,7 @@
                     </div>
 
                     <div class="sub-w3l">
-                        <h6 onclick="forgetPass()" style="cursor: pointer"><a>忘记密码?</a></h6>
+                        <%--<h6 onclick="forgetPass()" style="cursor: pointer"><a>忘记密码?</a></h6>--%>
                         <div class="right-w3l">
                             <input id="loginButton" type="button" class="login" value="登录">
                         </div>
@@ -92,7 +92,7 @@
 
         <!--footer-->
         <div class="footer">
-            <p>&copy; 2017 TMall. All rights reserved | Design by <a href="http://blog.exrick.cn" target="_blank">Exrick</a></p>
+            <p>&copy; 2018 TMall. All rights reserved | Design by <a href="http://github.com/warframeprimer" target="_blank">WarframePrimer</a></p>
         </div>
         <!--//footer-->
     </div>
@@ -131,7 +131,7 @@
                 return ;
             }
             $.ajax({
-                url: '/user/login?t=' + (new Date()).getTime(), // 加随机数防止缓存
+                url: 'tmall-cms/user/login?t=' + (new Date()).getTime(), // 加随机数防止缓存
                 type: 'POST',
                 dataType: 'json',
                 data: {
@@ -143,7 +143,7 @@
                 },
                 success: function (data) {
                     if(data.success==true){
-                        window.location.href="/";
+                        window.location.href="/tmall-cms";
                     }else{
                         layer.msg(data.message);
                         captchaObj.reset();
@@ -162,7 +162,7 @@
     };
 
     $.ajax({
-        url: '/geetestInit?t=' + (new Date()).getTime(), // 加随机数防止缓存
+        url: '/tmall-cms/geetestInit?t=' + (new Date()).getTime(), // 加随机数防止缓存
         type: "GET",
         dataType: 'json',
         success: function (data) {
@@ -177,12 +177,12 @@
         }
     });
 
-    function forgetPass(){
-        layer.alert('体验测试账号密码：test | test', {
-            icon: 4,
-            title: "提示"
-        });
-    }
+    // function forgetPass(){
+    //     layer.alert('体验测试账号密码：test | test', {
+    //         icon: 4,
+    //         title: "提示"
+    //     });
+    // }
 
     $.ajax({
         url:"/sys/base",

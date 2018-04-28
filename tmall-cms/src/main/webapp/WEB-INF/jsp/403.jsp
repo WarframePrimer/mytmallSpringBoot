@@ -25,8 +25,8 @@
     <p class="error-title"><i class="Hui-iconfont va-m" style="font-size:80px">&#xe688;</i>
         <span class="va-m"> 403</span>
     </p>
-    <p class="error-description">对不起，您没有权限！看就看，你点它干什么...<img style="padding-bottom: 5px" width="40px" height="40px" src="/icon/doge.png"></p>
-    <p class="error-info">您可以：
+    <p class="error-description">Permission Denied...<img style="padding-bottom: 5px" width="40px" height="40px" src="/icon/doge.png"></p>
+    <p class="error-info">you can：
         <a href="javascript:;" onclick="history.go(-1)" class="c-primary">&lt; 返回上一页</a>
         <span class="ml-20">|</span>
         <a href="/" class="c-primary ml-20">去首页 &gt;</a>

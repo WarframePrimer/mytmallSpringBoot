@@ -58,7 +58,7 @@ spring:
     ## 数据源配置
     datasource:
         type: com.alibaba.druid.pool.DruidDataSource
-        url: jdbc:mysql://127.0.0.1:3306/tmall_springboot?characterEncoding=utf8
+        url: jdbc:mysql://127.0.0.1:3306/springboot_tmall?characterEncoding=utf8
         username: root
         password: 123
         driverClassName: com.mysql.jdbc.Driver

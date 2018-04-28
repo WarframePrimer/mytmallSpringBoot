@@ -186,11 +186,15 @@
                                             <img src="lib/flatlab/img/product1.jpg">
                                         </a>
                                         <div class="media-body">
-                                            <a class="p-head" href="http://blog.exrick.cn" target="_blank">
+                                            <a class="p-head" href="http://github.com/warframeprimer" target="_blank">
                                                 尊敬的 <span id="username"></span>，
                                                 <span id="hello"></span>
                                                 现在时间是：<span id="currentTime"></span></a>
                                             <p>
+                                                <br>毕业设计：基于SpringBoot的电子商务网站设计与开发
+                                                <br>学号：1440407136
+                                                <br>姓名：姚嘉斌
+                                                <br>指导老师：苗红
                                             </p>
                                         </div>
                                     </article>
@@ -370,10 +374,10 @@
     });
 
 
-    window.changyan.api.config({
-        appid: 'cyrV7vlR4',
-        conf: 'prod_3163726f95fdac5ad0531c2344fc86ea'
-    });
+    // window.changyan.api.config({
+    //     appid: 'cyrV7vlR4',
+    //     conf: 'prod_3163726f95fdac5ad0531c2344fc86ea'
+    // });
 
     //owl carousel
     $(document).ready(function() {
@@ -394,7 +398,7 @@
 
     /*统计用户数*/
     $.ajax({
-        url:"/member/count",
+        url:"/tmall-cms/member/count",
         type:"GET",
         success:function (data) {
             countUp(data.recordsTotal);
@@ -405,7 +409,7 @@
     });
 
     $.ajax({
-        url:"/item/count",
+        url:"/tmall-cms/item/count",
         type: 'GET',
         success:function (result) {
             countUp2(result.recordsTotal);
@@ -418,7 +422,7 @@
     });
 
     $.ajax({
-        url:"/order/count",
+        url:"/tmall-cms/order/count",
         type: 'GET',
         success:function (data) {
             countUp3(data.result);
@@ -437,7 +441,7 @@
 
     //本周热门商品
     $.ajax({
-        url:"/sys/weekHot",
+        url:"/tmall-cms/sys/weekHot",
         type: 'GET',
         success:function (data) {
             $("#hot-title").html(data.result.title);
@@ -459,7 +463,7 @@
     }
 
     $.ajax({
-        url:"/sys/base",
+        url:"/tmall-cms/sys/base",
         type: 'GET',
         success:function (data) {
             if(data.success!=true){

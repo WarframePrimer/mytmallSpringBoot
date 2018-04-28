@@ -41,7 +41,8 @@
                         </ul>
                         <li class="navbar-levelone current"><a href="javascript:;">平台</a></li>
                         <li class="navbar-levelone"><a href="javascript:;">财务</a></li>
-                        <li ><a href="http://TMall.exrick.cn" target="_blank">商城前台</a></li>
+                        <!--TODO-->
+                        <li ><a href="" target="_blank">商城前台</a></li>
                     </li>
                 </ul>
             </nav>
@@ -158,14 +159,6 @@
                 </ul>
             </dd>
         </dl>
-        <%--<dl id="menu-b">--%>
-            <%--<dt><i class="Hui-iconfont">&#xe6b7;</i> 捐赠管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>--%>
-            <%--<dd>--%>
-                <%--<ul>--%>
-                    <%--<li><a data-href="thanks-list" data-title="捐赠列表" href="javascript:void(0)">捐赠列表</a></li>--%>
-                <%--</ul>--%>
-            <%--</dd>--%>
-        <%--</dl>--%>
     </div>
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
@@ -260,25 +253,15 @@
     function logout() {
         $.ajax({
             type: 'GET',
-            url: 'tmall-cms/user/logout',
+            url: '/tmall-cms/user/logout',
             success:function (data) {
-                window.location.href="/login";
+                window.location.href="/tmall-cms/login";
             },
             error:function(XMLHttpRequest){
                 layer.alert('数据处理失败! 错误码:'+XMLHttpRequest.status+' 错误信息:'+JSON.parse(XMLHttpRequest.responseText).message,{title: '错误信息',icon: 2});
             }
         });
     }
-
-    // function thanks(){
-    //     layer.open({
-    //         title: '捐赠',
-    //         type: 2,
-    //         skin: 'layui-layer-rim', //加上边框
-    //         area: ['525px', '300px'], //宽高
-    //         content: ['thanks-pic','no']
-    //     });
-    // }
 </script>
 </body>
 </html>
