@@ -75,9 +75,9 @@
                     <input  placeholder="密码" name="password" id="password" class="pass" type="password" required="">
                     <span class="icon2"><i class="fa fa-unlock" aria-hidden="true"></i></span><br><br>
 
-                    <div id="captcha">
-                        <p id="wait" class="show">正在加载验证码...</p>
-                    </div>
+                    <%--<div id="captcha">--%>
+                        <%--<p id="wait" class="show">正在加载验证码...</p>--%>
+                    <%--</div>--%>
 
                     <div class="sub-w3l">
                         <%--<h6 onclick="forgetPass()" style="cursor: pointer"><a>忘记密码?</a></h6>--%>
@@ -123,13 +123,13 @@
                 $("#loginButton").removeAttr("disabled");
                 return;
             }
-            var result = captchaObj.getValidate();
-            if (!result) {
-                layer.msg("请完成验证");
-                $("#loginButton").val("登录");
-                $("#loginButton").removeAttr("disabled");
-                return ;
-            }
+            // var result = captchaObj.getValidate();
+            // if (!result) {
+            //     layer.msg("请完成验证");
+            //     $("#loginButton").val("登录");
+            //     $("#loginButton").removeAttr("disabled");
+            //     return ;
+            // }
             $.ajax({
                 url: 'tmall-cms/user/login?t=' + (new Date()).getTime(), // 加随机数防止缓存
                 type: 'POST',
@@ -137,9 +137,9 @@
                 data: {
                     username: name,
                     password: pass,
-                    challenge: result.geetest_challenge,
-                    validate: result.geetest_validate,
-                    seccode: result.geetest_seccode
+                    // challenge: result.geetest_challenge,
+                    // validate: result.geetest_validate,
+                    // seccode: result.geetest_seccode
                 },
                 success: function (data) {
                     if(data.success==true){
@@ -161,21 +161,21 @@
         window.gt = captchaObj;
     };
 
-    $.ajax({
-        url: '/tmall-cms/geetestInit?t=' + (new Date()).getTime(), // 加随机数防止缓存
-        type: "GET",
-        dataType: 'json',
-        success: function (data) {
-            initGeetest({
-                gt: data.gt,
-                challenge: data.challenge,
-                new_captcha: data.new_captcha, // 用于宕机时表示是新验证码的宕机
-                offline: !data.success, // 表示用户后台检测极验服务器是否宕机，一般不需要关注
-                product: "popup", // 产品形式，包括：float(点击汉字)，popup(滑动)
-                width: "100%"
-            }, handler);
-        }
-    });
+    // $.ajax({
+    //     url: '/tmall-cms/geetestInit?t=' + (new Date()).getTime(), // 加随机数防止缓存
+    //     type: "GET",
+    //     dataType: 'json',
+    //     success: function (data) {
+    //         initGeetest({
+    //             gt: data.gt,
+    //             challenge: data.challenge,
+    //             new_captcha: data.new_captcha, // 用于宕机时表示是新验证码的宕机
+    //             offline: !data.success, // 表示用户后台检测极验服务器是否宕机，一般不需要关注
+    //             product: "popup", // 产品形式，包括：float(点击汉字)，popup(滑动)
+    //             width: "100%"
+    //         }, handler);
+    //     }
+    // });
 
     // function forgetPass(){
     //     layer.alert('体验测试账号密码：test | test', {
@@ -184,26 +184,26 @@
     //     });
     // }
 
-    $.ajax({
-        url:"/sys/base",
-        type: 'GET',
-        success:function (data) {
-            if(data.success!=true){
-                layer.alert(data.message,{title: '错误信息',icon: 2});
-                return;
-            }
-            if(data.result.hasLogNotice==1){
-                layer.alert(data.result.logNotice, {
-                    title: "通知"
-                });
-            }
-        },
-        error:function(XMLHttpRequest){
-            if(XMLHttpRequest.status!=200){
-                layer.alert('数据处理失败! 错误码:'+XMLHttpRequest.status+' 错误信息:'+JSON.parse(XMLHttpRequest.responseText).message,{title: '错误信息',icon: 2});
-            }
-        }
-    });
+    // $.ajax({
+    //     url:"/tmall-cms/sys/base",
+    //     type: 'GET',
+    //     success:function (data) {
+    //         if(data.success!=true){
+    //             layer.alert(data.message,{title: '错误信息',icon: 2});
+    //             return;
+    //         }
+    //         if(data.result.hasLogNotice==1){
+    //             layer.alert(data.result.logNotice, {
+    //                 title: "通知"
+    //             });
+    //         }
+    //     },
+    //     error:function(XMLHttpRequest){
+    //         if(XMLHttpRequest.status!=200){
+    //             layer.alert('数据处理失败! 错误码:'+XMLHttpRequest.status+' 错误信息:'+JSON.parse(XMLHttpRequest.responseText).message,{title: '错误信息',icon: 2});
+    //         }
+    //     }
+    // });
 </script>
 </body>
 </html>
