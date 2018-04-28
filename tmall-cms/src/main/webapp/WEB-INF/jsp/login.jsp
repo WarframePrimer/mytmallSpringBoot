@@ -99,6 +99,55 @@
 </div>
 <script type="text/javascript">
 
+
+    $('#loginButton').click(function () {
+        $("#loginButton").val("登录中...");
+        $("#loginButton").attr("disabled","disabled");
+        var name=$("#username").val();
+        var pass=$("#password").val();
+        if(name==""||pass==""){
+            layer.msg("用户名或密码不能为空");
+            $("#loginButton").val("登录");
+            $("#loginButton").removeAttr("disabled");
+            return;
+        }
+        var reg = /^[0-9A-Za-z]+$/;
+        if(!reg.exec(name))
+        {
+            layer.msg("用户名格式有误");
+            $("#loginButton").val("登录");
+            $("#loginButton").removeAttr("disabled");
+            return;
+        }
+        $.ajax({
+            url: 'tmall-cms/user/login?t=' + (new Date()).getTime(), // 加随机数防止缓存
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                username: name,
+                password: pass,
+                // challenge: result.geetest_challenge,
+                // validate: result.geetest_validate,
+                // seccode: result.geetest_seccode
+            },
+            success: function (data) {
+                if(data.success==true){
+                    window.location.href="/tmall-cms";
+                }else{
+                    layer.msg(data.message);
+                    captchaObj.reset();
+                    $("#loginButton").val("登录");
+                    $("#loginButton").removeAttr("disabled");
+                }
+            },
+            error:function(XMLHttpRequest){
+                layer.alert('数据处理失败! 错误码:'+XMLHttpRequest.status+' 错误信息:'+JSON.parse(XMLHttpRequest.responseText).message,{title: '错误信息',icon: 2});
+                $("#loginButton").val("登录");
+                $("#loginButton").removeAttr("disabled");
+            }
+        });
+    })
+
     var handler = function (captchaObj) {
         captchaObj.appendTo('#captcha');
         captchaObj.onReady(function () {
