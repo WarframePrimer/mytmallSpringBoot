@@ -81,12 +81,12 @@ public class SystemController {
         return new ResultUtil<TbOrderItem>().setData(tbOrderItem);
     }
 
-    @RequestMapping(value = "/sys/weather",method = RequestMethod.GET)
-    public Result<Object> getWeather(HttpServletRequest request){
-
-        String result= IPInfoUtil.getIpInfo(IPInfoUtil.getIpAddr(request));
-        return new ResultUtil<Object>().setData(result);
-    }
+//    @RequestMapping(value = "/sys/weather",method = RequestMethod.GET)
+//    public Result<Object> getWeather(HttpServletRequest request){
+//
+//        String result= IPInfoUtil.getIpInfo(IPInfoUtil.getIpAddr(request));
+//        return new ResultUtil<Object>().setData(result);
+//    }
 
     @RequestMapping(value = "/sys/log",method = RequestMethod.GET)
     public DataTablesResult getLog(){

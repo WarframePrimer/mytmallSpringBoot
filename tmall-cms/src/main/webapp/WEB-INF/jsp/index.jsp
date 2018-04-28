@@ -22,14 +22,14 @@
     <script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
     <script>DD_belatedPNG.fix('*');</script>
     <![endif]-->
-    <title>XMall后台管理系统 v1.0</title>
-    <meta name="keywords" content="XMall后台管理系统 v1.0,XMall,XMall购物商城后台管理系统">
-    <meta name="description" content="XMall后台管理系统 v1.0，是一款电商后台管理系统，适合中小型CMS后台系统。">
+    <title>TMall后台管理系统</title>
+    <meta name="keywords" content="TMall后台管理系统 TMall,TMall购物商城后台管理系统">
+    <meta name="description" content="TMall后台管理系统">
 </head>
 <body>
 <header class="navbar-wrapper">
     <div class="navbar navbar-fixed-top">
-        <div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/">XMall后台管理系统</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/">H-ui</a>
+        <div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/">TMall后台管理系统</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/">H-ui</a>
             <span class="logo navbar-slogan f-l mr-10 hidden-xs">v1.0</span>
             <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
             <nav class="nav navbar-nav">
@@ -41,7 +41,7 @@
                         </ul>
                         <li class="navbar-levelone current"><a href="javascript:;">平台</a></li>
                         <li class="navbar-levelone"><a href="javascript:;">财务</a></li>
-                        <li ><a href="http://xmall.exrick.cn" target="_blank">商城前台</a></li>
+                        <li ><a href="http://TMall.exrick.cn" target="_blank">商城前台</a></li>
                     </li>
                 </ul>
             </nav>
@@ -56,9 +56,9 @@
                             <li><a onclick="logout()">退出</a></li>
                         </ul>
                     </li>
-                    <li id="thanks"> <a onclick="thanks()" title="捐赠"><i class="Hui-iconfont" style="font-size:18px">&#xe6bb;</i></a> </li>
-                    <li id="LockScreen"> <a href="lock-screen" title="锁屏"><i class="Hui-iconfont" style="font-size:18px">&#xe60e;</i></a> </li>
-                    <li id="Hui-msg"> <a onclick="thanks()" title="消息"><span class="badge badge-danger">3</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>
+                    <%--<li id="thanks"> <a onclick="thanks()" title="捐赠"><i class="Hui-iconfont" style="font-size:18px">&#xe6bb;</i></a> </li>--%>
+                    <%--<li id="LockScreen"> <a href="lock-screen" title="锁屏"><i class="Hui-iconfont" style="font-size:18px">&#xe60e;</i></a> </li>--%>
+                   <%-- <li id="Hui-msg"> <a onclick="thanks()" title="消息"><span class="badge badge-danger">3</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>--%>
                     <li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="javascript:;" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
                         <ul class="dropDown-menu menu radius box-shadow">
                             <li><a href="javascript:;" data-val="default" title="默认（蓝色）">默认（蓝色）</a></li>
@@ -110,14 +110,14 @@
                 </ul>
             </dd>
         </dl>
-        <dl id="menu-comments">
-            <dt><i class="Hui-iconfont">&#xe622;</i> 评论管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a data-href="http://changyan.kuaizhan.com/" data-title="畅言评论管理" href="javascript:void(0)">畅言评论管理</a></li>
-                </ul>
-            </dd>
-        </dl>
+        <%--<dl id="menu-comments">--%>
+            <%--<dt><i class="Hui-iconfont">&#xe622;</i> 评论管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>--%>
+            <%--<dd>--%>
+                <%--<ul>--%>
+                    <%--<li><a data-href="http://changyan.kuaizhan.com/" data-title="畅言评论管理" href="javascript:void(0)">畅言评论管理</a></li>--%>
+                <%--</ul>--%>
+            <%--</dd>--%>
+        <%--</dl>--%>
         <dl id="menu-member">
             <dt><i class="Hui-iconfont">&#xe60d;</i> 会员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
@@ -158,14 +158,14 @@
                 </ul>
             </dd>
         </dl>
-        <dl id="menu-b">
-            <dt><i class="Hui-iconfont">&#xe6b7;</i> 捐赠管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a data-href="thanks-list" data-title="捐赠列表" href="javascript:void(0)">捐赠列表</a></li>
-                </ul>
-            </dd>
-        </dl>
+        <%--<dl id="menu-b">--%>
+            <%--<dt><i class="Hui-iconfont">&#xe6b7;</i> 捐赠管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>--%>
+            <%--<dd>--%>
+                <%--<ul>--%>
+                    <%--<li><a data-href="thanks-list" data-title="捐赠列表" href="javascript:void(0)">捐赠列表</a></li>--%>
+                <%--</ul>--%>
+            <%--</dd>--%>
+        <%--</dl>--%>
     </div>
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
@@ -235,7 +235,7 @@
     var username="",description="",sex="",phone="",email="",address="",created="",file="";
     $.ajax({
         type: 'GET',
-        url: '/user/userInfo',
+        url: 'tmall-cms/user/userInfo',
         success:function (data) {
             if(data.success==true){
                 $("#role").html(data.result.description);
@@ -260,7 +260,7 @@
     function logout() {
         $.ajax({
             type: 'GET',
-            url: '/user/logout',
+            url: 'tmall-cms/user/logout',
             success:function (data) {
                 window.location.href="/login";
             },
@@ -270,15 +270,15 @@
         });
     }
 
-    function thanks(){
-        layer.open({
-            title: '捐赠',
-            type: 2,
-            skin: 'layui-layer-rim', //加上边框
-            area: ['525px', '300px'], //宽高
-            content: ['thanks-pic','no']
-        });
-    }
+    // function thanks(){
+    //     layer.open({
+    //         title: '捐赠',
+    //         type: 2,
+    //         skin: 'layui-layer-rim', //加上边框
+    //         area: ['525px', '300px'], //宽高
+    //         content: ['thanks-pic','no']
+    //     });
+    // }
 </script>
 </body>
 </html>
