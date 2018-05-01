@@ -100,7 +100,7 @@
             serverSide: true,//开启服务器模式
             "processing": true,//加载显示提示
             "ajax": {
-                url:"member/list",
+                url:"/member/list",
                 type: 'GET',
                 data:{
                     "searchKey": "",

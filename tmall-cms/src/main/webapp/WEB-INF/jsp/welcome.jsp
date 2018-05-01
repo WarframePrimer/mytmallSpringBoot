@@ -340,7 +340,7 @@
 <!--common script for all pages-->
 <script src="lib/flatlab/js/common-scripts.js"></script>
 
-<script charset="utf-8" type="text/javascript" src="lib/changyan.js" ></script>
+<%--<script charset="utf-8" type="text/javascript" src="lib/changyan.js" ></script>--%>
 <script async src="lib/busuanzi.pure.mini.js"></script>
 <script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
 
@@ -398,7 +398,7 @@
 
     /*统计用户数*/
     $.ajax({
-        url:"/tmall-cms/member/count",
+        url:"/member/count",
         type:"GET",
         success:function (data) {
             countUp(data.recordsTotal);
@@ -409,7 +409,7 @@
     });
 
     $.ajax({
-        url:"/tmall-cms/item/count",
+        url:"/item/count",
         type: 'GET',
         success:function (result) {
             countUp2(result.recordsTotal);
@@ -422,7 +422,7 @@
     });
 
     $.ajax({
-        url:"/tmall-cms/order/count",
+        url:"/order/count",
         type: 'GET',
         success:function (data) {
             countUp3(data.result);
@@ -441,7 +441,7 @@
 
     //本周热门商品
     $.ajax({
-        url:"/tmall-cms/sys/weekHot",
+        url:"/sys/weekHot",
         type: 'GET',
         success:function (data) {
             $("#hot-title").html(data.result.title);
@@ -463,7 +463,7 @@
     }
 
     $.ajax({
-        url:"/tmall-cms/sys/base",
+        url:"/sys/base",
         type: 'GET',
         success:function (data) {
             if(data.success!=true){

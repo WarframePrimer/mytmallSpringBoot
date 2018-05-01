@@ -228,7 +228,7 @@
     var username="",description="",sex="",phone="",email="",address="",created="",file="";
     $.ajax({
         type: 'GET',
-        url: 'tmall-cms/user/userInfo',
+        url: '/user/userInfo',
         success:function (data) {
             if(data.success==true){
                 $("#role").html(data.result.description);
@@ -253,9 +253,9 @@
     function logout() {
         $.ajax({
             type: 'GET',
-            url: '/tmall-cms/user/logout',
+            url: '/user/logout',
             success:function (data) {
-                window.location.href="/tmall-cms/login";
+                window.location.href="/login";
             },
             error:function(XMLHttpRequest){
                 layer.alert('数据处理失败! 错误码:'+XMLHttpRequest.status+' 错误信息:'+JSON.parse(XMLHttpRequest.responseText).message,{title: '错误信息',icon: 2});

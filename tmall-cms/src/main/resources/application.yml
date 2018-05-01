@@ -80,7 +80,7 @@ server:
   # 端口
   port: 8071
   # 上下文路径
-  context-path: /tmall-cms
+#  context-path: /tmall-cms
 
 #商品详情缓存前缀
 redis: ITEM_INFO

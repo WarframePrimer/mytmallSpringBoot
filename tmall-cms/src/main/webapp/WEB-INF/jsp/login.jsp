@@ -120,7 +120,7 @@
             return;
         }
         $.ajax({
-            url: 'tmall-cms/user/login?t=' + (new Date()).getTime(), // 加随机数防止缓存
+            url: '/user/login?t=' + (new Date()).getTime(), // 加随机数防止缓存
             type: 'POST',
             dataType: 'json',
             data: {
@@ -132,7 +132,7 @@
             },
             success: function (data) {
                 if(data.success==true){
-                    window.location.href="/tmall-cms";
+                    window.location.href="";
                 }else{
                     layer.msg(data.message);
                     captchaObj.reset();
@@ -192,7 +192,7 @@
                 },
                 success: function (data) {
                     if(data.success==true){
-                        window.location.href="/tmall-cms";
+                        window.location.href="";
                     }else{
                         layer.msg(data.message);
                         captchaObj.reset();
@@ -211,7 +211,7 @@
     };
 
     // $.ajax({
-    //     url: '/tmall-cms/geetestInit?t=' + (new Date()).getTime(), // 加随机数防止缓存
+    //     url: '/geetestInit?t=' + (new Date()).getTime(), // 加随机数防止缓存
     //     type: "GET",
     //     dataType: 'json',
     //     success: function (data) {
@@ -234,7 +234,7 @@
     // }
 
     // $.ajax({
-    //     url:"/tmall-cms/sys/base",
+    //     url:"/sys/base",
     //     type: 'GET',
     //     success:function (data) {
     //         if(data.success!=true){
