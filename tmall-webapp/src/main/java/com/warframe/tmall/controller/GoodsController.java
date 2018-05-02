@@ -1,12 +1,14 @@
 package com.warframe.tmall.controller;
 
-import cn.exrick.search.service.SearchItemService;
-import cn.exrick.search.service.SearchService;
+
 import com.warframe.tmall.common.pojo.AllGoodsResult;
 import com.warframe.tmall.common.pojo.Result;
+import com.warframe.tmall.common.pojo.SearchResult;
 import com.warframe.tmall.common.utils.ResultUtil;
 import com.warframe.tmall.domain.dto.front.ProductDet;
 import com.warframe.tmall.domain.dto.front.ProductHome;
+import com.warframe.tmall.search.service.SearchItemService;
+import com.warframe.tmall.search.service.SearchService;
 import com.warframe.tmall.service.ContentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -66,8 +68,5 @@ public class GoodsController {
 
         searchItemService.importAllItems();
         return "callback({})";
-    }
-
-    private class SearchResult {
     }
 }
