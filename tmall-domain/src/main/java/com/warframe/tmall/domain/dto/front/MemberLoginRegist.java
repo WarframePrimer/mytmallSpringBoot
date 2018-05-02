@@ -11,35 +11,35 @@ public class MemberLoginRegist implements Serializable {
 
     private String userPwd;
 
-    private String challenge;
+//    private String challenge;
+//
+//    private String validate;
+//
+//    private String seccode;
 
-    private String validate;
-
-    private String seccode;
-
-    public String getChallenge() {
-        return challenge;
-    }
-
-    public void setChallenge(String challenge) {
-        this.challenge = challenge;
-    }
-
-    public String getValidate() {
-        return validate;
-    }
-
-    public void setValidate(String validate) {
-        this.validate = validate;
-    }
-
-    public String getSeccode() {
-        return seccode;
-    }
-
-    public void setSeccode(String seccode) {
-        this.seccode = seccode;
-    }
+//    public String getChallenge() {
+//        return challenge;
+//    }
+//
+//    public void setChallenge(String challenge) {
+//        this.challenge = challenge;
+//    }
+//
+//    public String getValidate() {
+//        return validate;
+//    }
+//
+//    public void setValidate(String validate) {
+//        this.validate = validate;
+//    }
+//
+//    public String getSeccode() {
+//        return seccode;
+//    }
+//
+//    public void setSeccode(String seccode) {
+//        this.seccode = seccode;
+//    }
 
     public String getUserName() {
         return userName;

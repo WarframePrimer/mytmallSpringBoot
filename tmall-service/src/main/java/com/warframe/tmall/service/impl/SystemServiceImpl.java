@@ -102,7 +102,7 @@ public class SystemServiceImpl implements SystemService {
     @Override
     public TbOrderItem getWeekHot() {
 
-        List<TbOrderItem> list=tbOrderItemMapper.getWeekHot();
+        List<TbOrderItem> list= tbOrderItemMapper.getWeekHot();
         if(list==null){
             throw new TmallException("获取热销商品数据失败");
         }

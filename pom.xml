@@ -15,6 +15,8 @@
         <module>tmall-repository</module>
         <module>tmall-common</module>
         <module>tmall-cms</module>
+        <module>tmall-sso</module>
+        <module>tmall-search</module>
     </modules>
 
     <parent>
