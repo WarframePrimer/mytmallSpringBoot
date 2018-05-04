@@ -49,25 +49,25 @@ public class ContentServiceImpl implements ContentService {
     private String PRODUCT_HOME;
 
     @Value("${HOT_ID}")
-    private Long HOT_ID;
+    private String HOT_ID;
 
     @Value("${OFFICIAL_ID}")
-    private Long OFFICIAL_ID;
+    private String OFFICIAL_ID;
 
     @Value("${BRAND_ID}")
-    private Long BRAND_ID;
+    private String BRAND_ID;
 
     @Value("${OFFICIAL_IMAGE_ID}")
-    private int OFFICIAL_IMAGE_ID;
+    private String OFFICIAL_IMAGE_ID;
 
     @Value("${BRAND_IMAGE_ID}")
-    private int BRAND_IMAGE_ID;
+    private String BRAND_IMAGE_ID;
 
     @Value("${RDEIS_ITEM}")
     private String RDEIS_ITEM;
 
     @Value("${ITEM_EXPIRE}")
-    private int ITEM_EXPIRE;
+    private String ITEM_EXPIRE;
 
     @Override
     public int addContent(TbContent tbContent) {
@@ -181,7 +181,7 @@ public class ContentServiceImpl implements ContentService {
         //热门商品
         TbContentExample example=new TbContentExample();
         TbContentExample.Criteria criteria=example.createCriteria();
-        criteria.andCategoryIdEqualTo(HOT_ID);
+        criteria.andCategoryIdEqualTo(Long.valueOf(HOT_ID));
         List<TbContent> listHot=tbContentMapper.selectByExample(example);
 
         List<Product> productHotList=new ArrayList<>();
@@ -212,7 +212,7 @@ public class ContentServiceImpl implements ContentService {
 
         TbContentExample example1=new TbContentExample();
         TbContentExample.Criteria criteria1=example1.createCriteria();
-        criteria1.andCategoryIdEqualTo(OFFICIAL_ID);
+        criteria1.andCategoryIdEqualTo(Long.valueOf(OFFICIAL_ID));
         List<TbContent> listFloor1=tbContentMapper.selectByExample(example1);
 
         List<Product> productFloorList1=new ArrayList<>();
@@ -232,9 +232,9 @@ public class ContentServiceImpl implements ContentService {
         }
 
         homeFloors1.setTabs(productFloorList1);
-        TbImage image1=tbImageMapper.selectByPrimaryKey(OFFICIAL_IMAGE_ID);
+        TbImage image1=tbImageMapper.selectByPrimaryKey(Integer.valueOf(OFFICIAL_IMAGE_ID));
         homeFloors1.setImage(image1);
-        TbContentCategory tbContentCategory1=tbContentCategoryMapper.selectByPrimaryKey(OFFICIAL_ID);
+        TbContentCategory tbContentCategory1=tbContentCategoryMapper.selectByPrimaryKey(Long.valueOf(OFFICIAL_ID));
         homeFloors1.setTitle(tbContentCategory1.getName());
 
         list.add(homeFloors1);
@@ -244,7 +244,7 @@ public class ContentServiceImpl implements ContentService {
 
         TbContentExample example2=new TbContentExample();
         TbContentExample.Criteria criteria2=example2.createCriteria();
-        criteria2.andCategoryIdEqualTo(BRAND_ID);
+        criteria2.andCategoryIdEqualTo(Long.valueOf(BRAND_ID));
         List<TbContent> listFloor2=tbContentMapper.selectByExample(example2);
 
         List<Product> productFloorList2=new ArrayList<>();
@@ -264,9 +264,9 @@ public class ContentServiceImpl implements ContentService {
         }
 
         homeFloors2.setTabs(productFloorList2);
-        TbImage image2=tbImageMapper.selectByPrimaryKey(BRAND_IMAGE_ID);
+        TbImage image2=tbImageMapper.selectByPrimaryKey(Integer.valueOf(BRAND_IMAGE_ID));
         homeFloors2.setImage(image2);
-        TbContentCategory tbContentCategory2=tbContentCategoryMapper.selectByPrimaryKey(BRAND_ID);
+        TbContentCategory tbContentCategory2=tbContentCategoryMapper.selectByPrimaryKey(Long.valueOf(BRAND_ID));
         homeFloors2.setTitle(tbContentCategory2.getName());
 
         list.add(homeFloors2);
@@ -286,7 +286,7 @@ public class ContentServiceImpl implements ContentService {
                 ProductDet productDet= new Gson().fromJson(json,ProductDet.class);
                 log.info("读取了商品"+id+"详情缓存");
                 //重置商品缓存时间
-                jedisClient.expire(RDEIS_ITEM+":"+id,ITEM_EXPIRE);
+                jedisClient.expire(RDEIS_ITEM+":"+id,Integer.valueOf(ITEM_EXPIRE));
                 return productDet;
             }
         }catch (Exception e){
@@ -321,7 +321,7 @@ public class ContentServiceImpl implements ContentService {
         try{
             jedisClient.set(RDEIS_ITEM+":"+id,new Gson().toJson(productDet));
             //设置过期时间
-            jedisClient.expire(RDEIS_ITEM+":"+id,ITEM_EXPIRE);
+            jedisClient.expire(RDEIS_ITEM+":"+id,Integer.valueOf(ITEM_EXPIRE));
             log.info("添加了商品"+id+"详情缓存");
         }catch (Exception e){
             e.printStackTrace();

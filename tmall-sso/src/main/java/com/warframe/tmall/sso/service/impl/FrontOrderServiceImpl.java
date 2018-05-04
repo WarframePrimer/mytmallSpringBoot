@@ -14,7 +14,7 @@ import com.warframe.tmall.repository.TbMemberMapper;
 import com.warframe.tmall.repository.TbOrderItemMapper;
 import com.warframe.tmall.repository.TbOrderMapper;
 import com.warframe.tmall.repository.TbOrderShippingMapper;
-import com.warframe.tmall.sso.service.OrderService;
+import com.warframe.tmall.sso.service.FrontOrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +27,9 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class OrderServiceImpl implements OrderService {
+public class FrontOrderServiceImpl implements FrontOrderService {
 
-    private final static Logger log = LoggerFactory.getLogger(OrderServiceImpl.class);
+    private final static Logger log = LoggerFactory.getLogger(FrontOrderServiceImpl.class);
 
     @Autowired
     private TbMemberMapper tbMemberMapper;    //用户

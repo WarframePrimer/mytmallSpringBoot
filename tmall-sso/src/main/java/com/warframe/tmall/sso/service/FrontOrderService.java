@@ -6,7 +6,7 @@ import com.warframe.tmall.domain.dto.front.OrderInfo;
 
 import java.util.List;
 
-public interface OrderService {
+public interface FrontOrderService {
 
     List<Order> getOrderList(Long userId);
 

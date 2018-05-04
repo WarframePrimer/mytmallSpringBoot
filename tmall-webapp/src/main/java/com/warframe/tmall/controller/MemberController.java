@@ -6,7 +6,7 @@ import com.warframe.tmall.domain.dto.front.CommonDto;
 import com.warframe.tmall.domain.dto.front.Member;
 import com.warframe.tmall.domain.dto.front.MemberLoginRegist;
 import com.warframe.tmall.sso.service.LoginService;
-import com.warframe.tmall.sso.service.MemberService;
+import com.warframe.tmall.sso.service.FrontMemberService;
 import com.warframe.tmall.sso.service.RegisterService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +25,7 @@ public class MemberController {
     @Autowired
     private RegisterService registerService;
     @Autowired
-    private MemberService memberService;
+    private FrontMemberService memberService;
 
 //    @RequestMapping(value = "/member/geetestInit",method = RequestMethod.GET)
 //    public String geetesrInit(HttpServletRequest request){

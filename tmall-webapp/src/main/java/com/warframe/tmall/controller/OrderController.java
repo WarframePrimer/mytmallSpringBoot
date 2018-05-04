@@ -5,7 +5,7 @@ import com.warframe.tmall.common.pojo.Result;
 import com.warframe.tmall.common.utils.ResultUtil;
 import com.warframe.tmall.domain.dto.front.Order;
 import com.warframe.tmall.domain.dto.front.OrderInfo;
-import com.warframe.tmall.sso.service.OrderService;
+import com.warframe.tmall.sso.service.FrontOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,40 +18,40 @@ import java.util.List;
 public class OrderController {
 
     @Autowired
-    private OrderService orderService;
+    private FrontOrderService frontOrderService;
 
     @RequestMapping(value = "/member/orderList",method = RequestMethod.GET)
     public Result<List<Order>> getOrderList(String userId){
 
-        List<Order> list=orderService.getOrderList(Long.valueOf(userId));
+        List<Order> list= frontOrderService.getOrderList(Long.valueOf(userId));
         return new ResultUtil<List<Order>>().setData(list);
     }
 
     @RequestMapping(value = "/member/orderDetail",method = RequestMethod.GET)
     public Result<Order> getOrder(String orderId){
 
-        Order order=orderService.getOrder(Long.valueOf(orderId));
+        Order order= frontOrderService.getOrder(Long.valueOf(orderId));
         return new ResultUtil<Order>().setData(order);
     }
 
     @RequestMapping(value = "/member/addOrder",method = RequestMethod.POST)
     public Result<Object> addOrder(@RequestBody OrderInfo orderInfo){
 
-        Long orderId=orderService.createOrder(orderInfo);
+        Long orderId= frontOrderService.createOrder(orderInfo);
         return new ResultUtil<Object>().setData(orderId.toString());
     }
 
     @RequestMapping(value = "/member/cancelOrder",method = RequestMethod.POST)
     public Result<Object> cancelOrder(@RequestBody Order order){
 
-        int result=orderService.cancelOrder(order.getOrderId());
+        int result= frontOrderService.cancelOrder(order.getOrderId());
         return new ResultUtil<Object>().setData(result);
     }
 
     @RequestMapping(value = "/member/delOrder",method = RequestMethod.GET)
     public Result<Object> delOrder(String orderId){
 
-        int result=orderService.delOrder(Long.valueOf(orderId));
+        int result= frontOrderService.delOrder(Long.valueOf(orderId));
         return new ResultUtil<Object>().setData(result);
     }
 }

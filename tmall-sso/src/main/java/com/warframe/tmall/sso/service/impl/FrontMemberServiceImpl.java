@@ -9,13 +9,13 @@ import com.warframe.tmall.domain.dto.front.Member;
 import com.warframe.tmall.domain.pojo.TbMember;
 import com.warframe.tmall.repository.TbMemberMapper;
 import com.warframe.tmall.sso.service.LoginService;
-import com.warframe.tmall.sso.service.MemberService;
+import com.warframe.tmall.sso.service.FrontMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MemberServiceImpl implements MemberService {
+public class FrontMemberServiceImpl implements FrontMemberService {
 
     @Autowired
     private LoginService loginService;

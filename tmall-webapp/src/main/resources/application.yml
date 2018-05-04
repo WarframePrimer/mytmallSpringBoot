@@ -48,7 +48,7 @@ spring:
     ## 数据源配置
     datasource:
         type: com.alibaba.druid.pool.DruidDataSource
-        url: jdbc:mysql://127.0.0.1:3306/tmall_springboot?characterEncoding=utf8
+        url: jdbc:mysql://127.0.0.1:3306/springboot_tmall?characterEncoding=utf8
         username: root
         password: 123
         driverClassName: com.mysql.jdbc.Driver
@@ -56,17 +56,58 @@ spring:
         max-idle: 10000
         min-idle: 200
         initial-size: 50
+#    redis:
+#        host: 127.0.0.1
+#        port: 6379
+#        timeout: 5000
     redis:
         host: 127.0.0.1
         port: 6379
         timeout: 5000
+        password:
 
 #mybatis配置:
 mybatis:
-    mapper-locations: com.warframe.tmall.repository.*.mapper/*.xml
+    mapper-locations:
+      com.warframe.tmall.repository/*.xml
+      com.warframe.tmall.search.mapper/*.xml
 
 server:
   # 端口
   port: 8080
   # 上下文路径
 #  context-path: /tmall-web
+
+#基础设置表id
+BASE_ID: 1
+#商城首页缓存key
+PRODUCT_HOME: PRODUCT_HOME
+#热门商品
+HOT_ID: 1
+#官方精选
+OFFICIAL_ID: 2
+#官方精选图片
+OFFICIAL_IMAGE_ID: 1
+#品牌精选
+BRAND_ID: 3
+#品牌精选图片
+BRAND_IMAGE_ID: 2
+#商品详情缓存前缀
+RDEIS_ITEM: ITEM_INFO
+#商品详情缓存过期时间 一周
+ITEM_EXPIRE: 604800
+
+#用户登录过期时间30分钟
+SESSION_EXPIRE: 1800
+#用户购物车
+CART_PRE: CART
+
+#ES连接IP
+ES_CONNECT_IP: 127.0.0.1
+
+#ES集群名
+ES_CLUSTER_NAME: tmall
+
+#ES商品索引
+ITEM_INDEX: item
+ITEM_TYPE: itemList
