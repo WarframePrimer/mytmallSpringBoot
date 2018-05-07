@@ -72,7 +72,7 @@ function countUp4(count)
     var div_by = 100,
         speed = Math.round(count / div_by),
         $display = $('.count4'),
-        run_count = 1,
+        run_count = 2,
         int_speed = 24;
 
     var int = setInterval(function() {

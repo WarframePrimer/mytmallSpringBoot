@@ -23,9 +23,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 
-/**
- * @author Exrickx
- */
 public class QiniuUtil {
 
     private final static Logger log= LoggerFactory.getLogger(QiniuUtil.class);

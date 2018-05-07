@@ -11,6 +11,7 @@ import javax.servlet.ServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class MyPermissionFilter extends AuthorizationFilter {
 
     private static final Logger log= LoggerFactory.getLogger(MyPermissionFilter.class);
@@ -49,7 +50,7 @@ public class MyPermissionFilter extends AuthorizationFilter {
                     log.info("没有该权限，并且是Ajax请求");
                     Map<String, Object> resultMap = new HashMap<String, Object>();
                     resultMap.put("success", false);
-                    resultMap.put("message", "抱歉，您没有该权限！看就看，你点它干什么...");
+                    resultMap.put("message", "抱歉，您没有该权限！");
                     FilterUtil.out(response, resultMap);
                 } else {
                     return isPermitted;

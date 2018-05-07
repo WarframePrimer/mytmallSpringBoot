@@ -20,11 +20,6 @@ import org.springframework.util.DigestUtils;
 import java.util.Date;
 import java.util.List;
 
-/**
- *
- * @author Exrick
- * @date 2017/8/11
- */
 @Service
 public class MemberServiceImpl implements MemberService {
 

@@ -7,8 +7,8 @@
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="TMall后台管理系统 v1.0,TMall,TMall购物商城后台管理系统">
-    <meta name="description" content="TMall后台管理系统 v1.0，是一款电商后台管理系统，适合中小型CMS后台系统。">
+    <meta name="keywords" content="TMall后台管理系统,TMall,TMall购物商城后台管理系统">
+    <meta name="description" content="TMall后台管理系统，是一款电商后台管理系统。">
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
     function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- Meta tag Keywords -->
@@ -41,10 +41,10 @@
             font-family:"Microsoft Yahei"
         }
         span.icon1 {
-            top: 23%;
+            /*top: 23%;*/
         }
         span.icon2 {
-            top: 42%;
+            /*top: 42%;*/
         }
         #wait {
             text-align: left;
@@ -74,13 +74,7 @@
                     <span class="icon1"><i class="fa fa-user" aria-hidden="true"></i></span><br><br>
                     <input  placeholder="密码" name="password" id="password" class="pass" type="password" required="">
                     <span class="icon2"><i class="fa fa-unlock" aria-hidden="true"></i></span><br><br>
-
-                    <%--<div id="captcha">--%>
-                        <%--<p id="wait" class="show">正在加载验证码...</p>--%>
-                    <%--</div>--%>
-
                     <div class="sub-w3l">
-                        <%--<h6 onclick="forgetPass()" style="cursor: pointer"><a>忘记密码?</a></h6>--%>
                         <div class="right-w3l">
                             <input id="loginButton" type="button" class="login" value="登录">
                         </div>
@@ -132,10 +126,10 @@
             },
             success: function (data) {
                 if(data.success==true){
-                    window.location.href="";
+                    window.location.href="/index";
                 }else{
                     layer.msg(data.message);
-                    captchaObj.reset();
+                    // captchaObj.reset();
                     $("#loginButton").val("登录");
                     $("#loginButton").removeAttr("disabled");
                 }
@@ -148,67 +142,67 @@
         });
     })
 
-    var handler = function (captchaObj) {
-        captchaObj.appendTo('#captcha');
-        captchaObj.onReady(function () {
-            $("#wait").hide();
-        });
-        $('#loginButton').click(function () {
-            $("#loginButton").val("登录中...");
-            $("#loginButton").attr("disabled","disabled");
-            var name=$("#username").val();
-            var pass=$("#password").val();
-            if(name==""||pass==""){
-                layer.msg("用户名或密码不能为空");
-                $("#loginButton").val("登录");
-                $("#loginButton").removeAttr("disabled");
-                return;
-            }
-            var reg = /^[0-9A-Za-z]+$/;
-            if(!reg.exec(name))
-            {
-                layer.msg("用户名格式有误");
-                $("#loginButton").val("登录");
-                $("#loginButton").removeAttr("disabled");
-                return;
-            }
-            // var result = captchaObj.getValidate();
-            // if (!result) {
-            //     layer.msg("请完成验证");
-            //     $("#loginButton").val("登录");
-            //     $("#loginButton").removeAttr("disabled");
-            //     return ;
-            // }
-            $.ajax({
-                url: 'tmall-cms/user/login?t=' + (new Date()).getTime(), // 加随机数防止缓存
-                type: 'POST',
-                dataType: 'json',
-                data: {
-                    username: name,
-                    password: pass,
-                    // challenge: result.geetest_challenge,
-                    // validate: result.geetest_validate,
-                    // seccode: result.geetest_seccode
-                },
-                success: function (data) {
-                    if(data.success==true){
-                        window.location.href="";
-                    }else{
-                        layer.msg(data.message);
-                        captchaObj.reset();
-                        $("#loginButton").val("登录");
-                        $("#loginButton").removeAttr("disabled");
-                    }
-                },
-                error:function(XMLHttpRequest){
-                layer.alert('数据处理失败! 错误码:'+XMLHttpRequest.status+' 错误信息:'+JSON.parse(XMLHttpRequest.responseText).message,{title: '错误信息',icon: 2});
-                $("#loginButton").val("登录");
-                $("#loginButton").removeAttr("disabled");
-            }
-            });
-        })
-        window.gt = captchaObj;
-    };
+    // var handler = function (captchaObj) {
+    //     captchaObj.appendTo('#captcha');
+    //     captchaObj.onReady(function () {
+    //         $("#wait").hide();
+    //     });
+    //     $('#loginButton').click(function () {
+    //         $("#loginButton").val("登录中...");
+    //         $("#loginButton").attr("disabled","disabled");
+    //         var name=$("#username").val();
+    //         var pass=$("#password").val();
+    //         if(name==""||pass==""){
+    //             layer.msg("用户名或密码不能为空");
+    //             $("#loginButton").val("登录");
+    //             $("#loginButton").removeAttr("disabled");
+    //             return;
+    //         }
+    //         var reg = /^[0-9A-Za-z]+$/;
+    //         if(!reg.exec(name))
+    //         {
+    //             layer.msg("用户名格式有误");
+    //             $("#loginButton").val("登录");
+    //             $("#loginButton").removeAttr("disabled");
+    //             return;
+    //         }
+    //         // var result = captchaObj.getValidate();
+    //         // if (!result) {
+    //         //     layer.msg("请完成验证");
+    //         //     $("#loginButton").val("登录");
+    //         //     $("#loginButton").removeAttr("disabled");
+    //         //     return ;
+    //         // }
+    //         $.ajax({
+    //             url: 'tmall-cms/user/login?t=' + (new Date()).getTime(), // 加随机数防止缓存
+    //             type: 'POST',
+    //             dataType: 'json',
+    //             data: {
+    //                 username: name,
+    //                 password: pass,
+    //                 // challenge: result.geetest_challenge,
+    //                 // validate: result.geetest_validate,
+    //                 // seccode: result.geetest_seccode
+    //             },
+    //             success: function (data) {
+    //                 if(data.success==true){
+    //                     window.location.href="";
+    //                 }else{
+    //                     layer.msg(data.message);
+    //                     captchaObj.reset();
+    //                     $("#loginButton").val("登录");
+    //                     $("#loginButton").removeAttr("disabled");
+    //                 }
+    //             },
+    //             error:function(XMLHttpRequest){
+    //             layer.alert('数据处理失败! 错误码:'+XMLHttpRequest.status+' 错误信息:'+JSON.parse(XMLHttpRequest.responseText).message,{title: '错误信息',icon: 2});
+    //             $("#loginButton").val("登录");
+    //             $("#loginButton").removeAttr("disabled");
+    //         }
+    //         });
+    //     })
+    //     window.gt = captchaObj;
+    // };
 
     // $.ajax({
     //     url: '/geetestInit?t=' + (new Date()).getTime(), // 加随机数防止缓存

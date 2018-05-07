@@ -30,7 +30,7 @@
 <header class="navbar-wrapper">
     <div class="navbar navbar-fixed-top">
         <div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/">TMall后台管理系统</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/">H-ui</a>
-            <span class="logo navbar-slogan f-l mr-10 hidden-xs">v1.0</span>
+            <%--<span class="logo navbar-slogan f-l mr-10 hidden-xs">v1.0</span>--%>
             <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
             <nav class="nav navbar-nav">
                 <ul class="cl">
@@ -42,7 +42,7 @@
                         <li class="navbar-levelone current"><a href="javascript:;">平台</a></li>
                         <li class="navbar-levelone"><a href="javascript:;">财务</a></li>
                         <!--TODO-->
-                        <li ><a href="" target="_blank">商城前台</a></li>
+                        <li ><a href="http://localhost:9999/#/home" target="_blank">商城前台</a></li>
                     </li>
                 </ul>
             </nav>

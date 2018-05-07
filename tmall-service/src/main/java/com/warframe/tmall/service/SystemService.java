@@ -10,9 +10,6 @@ import com.warframe.tmall.domain.pojo.TbShiroFilter;
 
 import java.util.List;
 
-/**
- * @author Exrickx
- */
 public interface SystemService {
 
     /**

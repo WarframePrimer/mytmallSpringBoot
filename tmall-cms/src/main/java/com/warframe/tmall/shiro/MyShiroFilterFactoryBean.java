@@ -9,10 +9,13 @@ import org.apache.shiro.util.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 
+@Component
 public class MyShiroFilterFactoryBean extends ShiroFilterFactoryBean {
 
     private static final Logger log= LoggerFactory.getLogger(MyShiroFilterFactoryBean.class);
@@ -22,7 +25,6 @@ public class MyShiroFilterFactoryBean extends ShiroFilterFactoryBean {
      */
     public static String definitions;
 
-    //权限service
     @Autowired
     private SystemService systemService;
 
@@ -33,16 +35,12 @@ public class MyShiroFilterFactoryBean extends ShiroFilterFactoryBean {
     public void setFilterChainDefinitions(String definitions) {
 
         MyShiroFilterFactoryBean.definitions = definitions;
-
         //数据库动态权限
         List<TbShiroFilter> list = systemService.getShiroFilter();
         for(TbShiroFilter tbShiroFilter : list){
             //字符串拼接权限
             definitions = definitions+tbShiroFilter.getName() + " = "+tbShiroFilter.getPerms()+"\n";
         }
-
-        log.info(definitions);
-
         //从配置文件加载权限配置
         Ini ini = new Ini();
         ini.load(definitions);
@@ -50,6 +48,8 @@ public class MyShiroFilterFactoryBean extends ShiroFilterFactoryBean {
         if (CollectionUtils.isEmpty(section)) {
             section = ini.getSection("");
         }
+
+
 
         this.setFilterChainDefinitionMap(section);
     }

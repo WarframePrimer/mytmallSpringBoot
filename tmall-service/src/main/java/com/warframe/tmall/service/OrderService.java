@@ -3,9 +3,6 @@ package com.warframe.tmall.service;
 
 import com.warframe.tmall.common.pojo.DataTablesResult;
 
-/**
- * @author Exrickx
- */
 public interface OrderService {
 
     /**

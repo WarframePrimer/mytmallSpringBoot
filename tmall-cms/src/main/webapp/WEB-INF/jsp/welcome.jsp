@@ -260,18 +260,8 @@
                     </section>
                     <!--user info table end-->
                 </div>
-                <%--<div class="col-lg-8">--%>
-                    <%----%>
-                <%--</div>--%>
             </div>
             <div class="row">
-                <%--<div class="col-lg-8">--%>
-                    <%----%>
-                <%--</div>--%>
-                <%--<div class="col-lg-4">--%>
-                    <%----%>
-                <%--</div>--%>
-
                 <div class="col-lg-4">
                     <!--latest product info start-->
                     <section class="panel post-wrap pro-box">
@@ -340,7 +330,6 @@
 <!--common script for all pages-->
 <script src="lib/flatlab/js/common-scripts.js"></script>
 
-<%--<script charset="utf-8" type="text/javascript" src="lib/changyan.js" ></script>--%>
 <script async src="lib/busuanzi.pure.mini.js"></script>
 <script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
 
@@ -372,12 +361,6 @@
             $("#currentTime").text(new Date().toLocaleString());
         },1000);
     });
-
-
-    // window.changyan.api.config({
-    //     appid: 'cyrV7vlR4',
-    //     conf: 'prod_3163726f95fdac5ad0531c2344fc86ea'
-    // });
 
     //owl carousel
     $(document).ready(function() {

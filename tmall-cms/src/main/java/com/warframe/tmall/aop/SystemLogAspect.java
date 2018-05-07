@@ -97,10 +97,10 @@ public class SystemLogAspect {
                 tbLog.setRequestParam(logParams.toString());
                 //请求用户
                 tbLog.setUser(username);
-                //请求IP
-                tbLog.setIp(IPInfoUtil.getIpAddr(request));
-                //IP地址
-                tbLog.setIpInfo(IPInfoUtil.getIpCity(IPInfoUtil.getIpAddr(request)));
+//                //请求IP
+//                tbLog.setIp(IPInfoUtil.getIpAddr(request));
+//                //IP地址
+//                tbLog.setIpInfo(IPInfoUtil.getIpCity(IPInfoUtil.getIpAddr(request)));
                 //请求开始时间
                 Date logStartTime = beginTimeThreadLocal.get();
 
@@ -147,10 +147,10 @@ public class SystemLogAspect {
                 tbLog.setRequestParam(logParams.toString());
                 //请求用户
                 tbLog.setUser(username);
-                //请求IP
-                tbLog.setIp(IPInfoUtil.getIpAddr(request));
-                //IP地址
-                tbLog.setIpInfo(IPInfoUtil.getIpCity(IPInfoUtil.getIpAddr(request)));
+//                //请求IP
+//                tbLog.setIp(IPInfoUtil.getIpAddr(request));
+//                //IP地址
+//                tbLog.setIpInfo(IPInfoUtil.getIpCity(IPInfoUtil.getIpAddr(request)));
                 //请求开始时间
                 Date logStartTime = beginTimeThreadLocal.get();
 

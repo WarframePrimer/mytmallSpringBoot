@@ -17,9 +17,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by Exrick on 2017/8/2.
- */
+
 @Service
 public class ItemCatServiceImpl implements ItemCatService {
 

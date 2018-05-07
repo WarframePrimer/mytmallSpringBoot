@@ -23,6 +23,10 @@ spring:
           charset: UTF-8
           force: true
 
+    #使用cglib动态代理
+    aop:
+      proxy-target-class: true
+
 #    mvc:
 #      view:
 #        suffix: .html
