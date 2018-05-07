@@ -56,7 +56,7 @@ public class ItemESMessageListener implements MessageListener {
 
 			//更新索引
 			Settings settings = Settings.builder()
-					.put("cluster.name", "xmall").build();
+					.put("cluster.name", "Tmall").build();
 			TransportClient client = new PreBuiltTransportClient(settings)
 					.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName(ES_CONNECT_IP), 9300));
 
